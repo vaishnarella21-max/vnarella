@@ -15,7 +15,7 @@
     try {
       if (value) localStorage.setItem(STORAGE_KEY, value);
       else localStorage.removeItem(STORAGE_KEY);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   function getSystemDark() {
@@ -33,7 +33,12 @@
 
   function initTheme() {
     var stored = getStoredTheme();
-    var dark = stored === "dark";
+    var dark;
+    if (stored) {
+      dark = stored === "dark";
+    } else {
+      dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
     applyTheme(dark);
     var btn = document.querySelector(".theme-toggle");
     if (btn) {
@@ -126,10 +131,53 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  function setupNavScrollSpy() {
+    var sections = document.querySelectorAll("section");
+    var navLinks = document.querySelectorAll(".nav a");
+
+    window.addEventListener("scroll", function () {
+      var current = "";
+      sections.forEach(function (section) {
+        var sectionTop = section.offsetTop;
+        var sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(function (link) {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current) && current !== "") {
+          link.classList.add("active");
+        }
+      });
+    });
+  }
+
+  function setupSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        var targetId = this.getAttribute('href').substring(1);
+        var target = document.getElementById(targetId);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80, // Offset for fixed header
+            behavior: 'smooth'
+          });
+          // Update URL without jump
+          history.pushState(null, null, '#' + targetId);
+        }
+      });
+    });
+  }
+
   initTheme();
   setupThemeToggle();
   setupReveal();
   setupPrintResume();
   setupMobileNav();
+  setupNavScrollSpy();
+  setupSmoothScroll();
   setFooterYear();
 })();
