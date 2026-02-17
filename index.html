@@ -17,30 +17,35 @@
   <header class="header">
     <a href="#" class="logo">VN.</a>
     <div class="nav-wrap">
-      <nav class="nav">
+      <!-- Desktop Nav -->
+      <nav class="nav desktop-nav">
         <a href="index.html#about">About me</a>
         <a href="index.html#work">Work</a>
         <a href="index.html#services">Services</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button type="button" class="theme-toggle" aria-label="Switch to dark or light theme" title="Theme">
-        <span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4" />
-            <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-          </svg></span>
-        <span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg></span>
-      </button>
-      <button class="nav-toggle" aria-label="Toggle menu">
+      <!-- Mobile Menu Toggle -->
+      <button id="menuToggle" class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu" class="menu-overlay" aria-hidden="true">
+    <div class="menu-backdrop"></div>
+    <div class="menu-panel">
+      <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
+      <nav class="mobile-nav-links">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
 
   <main>
     <!-- HERO (Split) -->

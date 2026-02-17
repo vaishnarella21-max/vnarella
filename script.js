@@ -1,69 +1,16 @@
 (function () {
   "use strict";
 
-  var STORAGE_KEY = "theme";
+  // Removed Dark Mode Logic
 
-  function getStoredTheme() {
-    try {
-      return localStorage.getItem(STORAGE_KEY);
-    } catch (e) {
-      return null;
-    }
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+    // initTheme(); // Removed
+    setupMobileNav();
+    setupReveal();
+    // setupThemeToggle(); // Removed
+  });
 
-  function setStoredTheme(value) {
-    try {
-      if (value) localStorage.setItem(STORAGE_KEY, value);
-      else localStorage.removeItem(STORAGE_KEY);
-    } catch (e) { }
-  }
-
-  function getSystemDark() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
-
-  function applyTheme(dark) {
-    var root = document.documentElement;
-    if (dark) {
-      root.dataset.theme = "dark";
-    } else {
-      delete root.dataset.theme;
-    }
-  }
-
-  function initTheme() {
-    var stored = getStoredTheme();
-    var dark;
-    if (stored) {
-      dark = stored === "dark";
-    } else {
-      dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-    applyTheme(dark);
-    var btn = document.querySelector(".theme-toggle");
-    if (btn) {
-      btn.setAttribute("aria-pressed", dark ? "true" : "false");
-      updateThemeLabel(btn, dark);
-    }
-  }
-
-  function updateThemeLabel(btn, isDark) {
-    var label = btn && btn.querySelector(".theme-toggle-label");
-    if (label) label.textContent = isDark ? "Light" : "Dark";
-  }
-
-  function setupThemeToggle() {
-    var btn = document.querySelector(".theme-toggle");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      var isDark = document.documentElement.dataset.theme === "dark";
-      var next = !isDark;
-      applyTheme(next);
-      setStoredTheme(next ? "dark" : "light");
-      btn.setAttribute("aria-pressed", next ? "true" : "false");
-      updateThemeLabel(btn, next);
-    });
-  }
+  /* ... rest of existing code ... */
 
   function setupReveal() {
     var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -96,32 +43,64 @@
     }
   }
 
-  function setupMobileNav() {
-    var toggle = document.querySelector(".nav-toggle");
-    var nav = document.querySelector(".nav");
-    if (!toggle || !nav) return;
 
-    toggle.addEventListener("click", function () {
-      var expanded = toggle.getAttribute("aria-expanded") === "true";
-      var next = !expanded;
-      toggle.setAttribute("aria-expanded", next ? "true" : "false");
-      nav.classList.toggle("is-open", next);
-      document.body.style.overflow = next ? "hidden" : "";
+  /* Mobile Menu Logic - Robust & Polished */
+  function setupMobileNav() {
+    var toggleBtn = document.getElementById("menuToggle");
+    var menuOverlay = document.getElementById("mobileMenu");
+
+    if (!toggleBtn || !menuOverlay) return;
+
+    var closeBtn = menuOverlay.querySelector(".menu-close");
+    var backdrop = menuOverlay.querySelector(".menu-backdrop");
+    var links = menuOverlay.querySelectorAll("a");
+
+    function toggleMenu(isOpen) {
+      if (isOpen) {
+        menuOverlay.classList.add("is-open");
+        document.body.classList.add("menu-open"); // Lock scroll
+        toggleBtn.setAttribute("aria-expanded", "true");
+        menuOverlay.setAttribute("aria-hidden", "false");
+      } else {
+        menuOverlay.classList.remove("is-open");
+        document.body.classList.remove("menu-open"); // Unlock scroll
+        toggleBtn.setAttribute("aria-expanded", "false");
+        menuOverlay.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    // Toggle Button Click
+    toggleBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var isOpen = menuOverlay.classList.contains("is-open");
+      toggleMenu(!isOpen);
     });
 
-    nav.querySelectorAll("a").forEach(function (link) {
+    // Close Button Click
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        toggleMenu(false);
+      });
+    }
+
+    // Backdrop Click (Close)
+    if (backdrop) {
+      backdrop.addEventListener("click", function () {
+        toggleMenu(false);
+      });
+    }
+
+    // Link Click (Close & Navigate)
+    links.forEach(function (link) {
       link.addEventListener("click", function () {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
-        document.body.style.overflow = "";
+        toggleMenu(false);
       });
     });
 
+    // Escape Key (Close)
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && nav.classList.contains("is-open")) {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
-        document.body.style.overflow = "";
+      if (e.key === "Escape" && menuOverlay.classList.contains("is-open")) {
+        toggleMenu(false);
       }
     });
   }
