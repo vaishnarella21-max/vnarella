@@ -1,340 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vaishnavi Narella - Marketing & Project Management Professional">
+  <meta name="description" content="Vaishnavi Narella · Product Marketing, Data Analytics, Marketing Operations & Project Management">
   <title>Vaishnavi Narella | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header class="header">
-    <a href="#" class="logo">VN.</a>
+    <a href="#" class="logo">VN<span>.</span></a>
     <div class="nav-wrap">
-      <!-- Desktop Nav -->
       <nav class="nav desktop-nav">
-        <a href="index.html#about">About me</a>
-        <a href="index.html#work">Work</a>
-        <a href="index.html#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#work">Work</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact" class="nav-cta">Let's Talk</a>
       </nav>
-      <!-- Mobile Menu Toggle -->
-      <button id="menuToggle" class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"
-        aria-controls="mobileMenu">
+      <button id="menuToggle" class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- Mobile Menu -->
   <div id="mobileMenu" class="menu-overlay" aria-hidden="true">
     <div class="menu-backdrop"></div>
     <div class="menu-panel">
       <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
       <nav class="mobile-nav-links">
-        <a href="index.html#work">Work</a>
-        <a href="index.html#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#work">Work</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Let's Talk</a>
       </nav>
     </div>
   </div>
 
   <main>
-    <!-- HERO (Split) -->
-    <section class="hero container">
-      <div class="hero-split">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+
+        <!-- Left: Content -->
         <div class="hero-content reveal">
-          <span class="hero-label">Growth, Marketing & Project Management</span>
-          <h1 class="hero-title">Vaishnavi Narella</h1>
-          <p class="hero-subtitle">I work at the intersection of strategy, marketing, and project execution, turning
-            complex goals into clear, actionable outcomes.</p>
-          <p class="hero-subtitle" style="font-size: 1.1rem; margin-top: -1rem; color: var(--text-muted);">With
-            experience coordinating cross-functional teams, managing platforms and campaigns, and delivering under tight
-            timelines, I focus on structured execution, accountability, and measurable results.</p>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            AVAILABLE NOW FOR INTERNSHIPS · FULL-TIME FROM DEC 2026
+          </div>
+
+          <span class="hero-label">Marketing · Analytics · Product · Operations</span>
+
+          <h1 class="hero-title">
+            Vaishnavi<br>
+            <span class="accent">Narella</span>
+          </h1>
+
+          <p class="hero-tagline">
+            I connect strategy to execution, turning data into decisions, campaigns into outcomes, and ambiguous problems into measurable results.
+          </p>
+
+          <p class="hero-sub">
+            Currently completing my <strong>Master of Global Management at Thunderbird, ASU</strong> (Dec 2026). Seeking roles in Product Marketing, Marketing Operations, Data Analytics, or Project Management.
+          </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View my work</a>
-            <a href="#contact" class="btn btn-secondary">Contact me</a>
+            <a href="#work" class="btn btn-primary">View My Work →</a>
+            <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download class="btn btn-secondary">Download Resume</a>
           </div>
 
-          <div class="hero-ids">
-            <div class="id-card">
-              <strong>Currently</strong>
-              <span>Thunderbird MGM Student</span>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">School</span>
+              <span class="hero-meta-value">Thunderbird, ASU</span>
             </div>
-            <div class="id-card">
-              <strong>Based in</strong>
-              <span>Phoenix, AZ</span>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Based in</span>
+              <span class="hero-meta-value">Phoenix, AZ</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Work Auth</span>
+              <span class="hero-meta-value">F-1 STEM OPT · No sponsorship needed</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Side Service Stack -->
-        <div class="service-stack reveal">
-          <div class="service-pill">
-            <div class="service-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
-                <path d="M23 6l-9.5 9.5-5-5L1 18" />
-              </svg>
+        <!-- Right: Role Tiles · all orange gradient, uniform design -->
+        <div class="hero-tiles reveal">
+          <div class="hero-tile">
+            <div class="hero-tile-icon">📈</div>
+            <div>
+              <div class="hero-tile-text">Product Marketing &amp; GTM</div>
+              <div style="font-size:0.78rem;opacity:0.75;margin-top:3px;">Positioning · Competitive Intel · Campaigns</div>
             </div>
-            <span class="service-text">Growth & Marketing Strategy</span>
           </div>
-          <div class="service-pill">
-            <div class="service-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
-                <circle cx="9" cy="21" r="1" />
-                <circle cx="20" cy="21" r="1" />
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-              </svg>
+          <div class="hero-tile">
+            <div class="hero-tile-icon">📊</div>
+            <div>
+              <div class="hero-tile-text">Data &amp; Business Analytics</div>
+              <div style="font-size:0.78rem;opacity:0.75;margin-top:3px;">KPIs · Reporting · Trend Analysis</div>
             </div>
-            <span class="service-text">Marketplace & Platform Optimization</span>
           </div>
-          <div class="service-pill">
-            <div class="service-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-              </svg>
+          <div class="hero-tile">
+            <div class="hero-tile-icon">🎯</div>
+            <div>
+              <div class="hero-tile-text">Digital Marketing &amp; Ops</div>
+              <div style="font-size:0.78rem;opacity:0.75;margin-top:3px;">Meta · SEO · Multi-channel Execution</div>
             </div>
-            <span class="service-text">Cross-functional Project Management</span>
           </div>
-          <div class="service-pill">
-            <div class="service-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                <polyline points="2 17 12 22 22 17" />
-                <polyline points="2 12 12 17 22 12" />
-              </svg>
+          <div class="hero-tile">
+            <div class="hero-tile-icon">⚙️</div>
+            <div>
+              <div class="hero-tile-text">Project &amp; Process Management</div>
+              <div style="font-size:0.78rem;opacity:0.75;margin-top:3px;">Cross-functional · Stakeholders · Delivery</div>
             </div>
-            <span class="service-text">Content & Web Execution</span>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- STATS SECTION (Fix Pack) -->
-    <section class="vn-stats reveal metrics-strip" id="stats">
-      <div class="vn-stats-grid">
-        <div class="vn-stat-card">
-          <div class="vn-stat-top">
-            <div class="vn-stat-number">150+</div>
-            <div class="vn-stat-title">Listings Optimized</div>
-          </div>
-          <div class="vn-stat-sub">
-            Standardized titles, keywords, specs, and visuals to improve discoverability and conversion across
-            marketplaces.
-          </div>
-          <div class="vn-stat-meta">eBay + Walmart</div>
+    <!-- STATS STRIP -->
+    <section class="stats-strip">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <span class="stat-number">12–15%</span>
+          <span class="stat-label">Conversion Rate Lift</span>
+          <span class="stat-sub">Go-to-market campaigns · Sper Scientific</span>
         </div>
-
-        <div class="vn-stat-card">
-          <div class="vn-stat-top">
-            <div class="vn-stat-number">100%</div>
-            <div class="vn-stat-title">On-time Delivery</div>
-          </div>
-          <div class="vn-stat-sub">
-            Delivered client and internal initiatives through structured planning, coordination, and execution
-            ownership.
-          </div>
-          <div class="vn-stat-meta">Project Delivery</div>
+        <div class="stat-item reveal">
+          <span class="stat-number">$50K</span>
+          <span class="stat-label">Contract Renewed</span>
+          <span class="stat-sub">Via competitive repositioning · Tradexa</span>
         </div>
-
-        <div class="vn-stat-card">
-          <div class="vn-stat-top">
-            <div class="vn-stat-number">E2E</div>
-            <div class="vn-stat-title">Execution Systems</div>
-          </div>
-          <div class="vn-stat-sub">
-            Built repeatable workflows from requirements to review, reducing ambiguity and improving operational
-            clarity.
-          </div>
-          <div class="vn-stat-meta">Strategy to Optimization</div>
+        <div class="stat-item reveal">
+          <span class="stat-number">25%</span>
+          <span class="stat-label">Productivity Gained</span>
+          <span class="stat-sub">Process redesign &amp; workflow improvements</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">On-time Delivery</span>
+          <span class="stat-sub">2.5 years of concurrent client engagements</span>
         </div>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section container">
-      <div class="about-split reveal">
+      <div class="about-grid reveal">
+
+        <!-- Image side -->
+        <div>
+          <div class="about-img-wrap">
+            <img src="assets/headshot.jpg"
+              alt="Vaishnavi Narella · Marketing &amp; Analytics Professional"
+              class="about-img">
+          </div>
+        </div>
+
+        <!-- Text side -->
         <div class="about-text">
-          <h2 class="section-title">About Me</h2>
-          <p class="about-lead">I am a marketing and project management professional focused on structured execution,
-            operational clarity, and delivery ownership.</p>
-          <p>I work across strategy, coordination, and execution, helping teams translate complex goals into clear plans
-            and drive them through to completion in fast-paced environments.</p>
-          <p>From coordinating cross-functional teams to improving execution workflows, I bring analytical thinking,
-            accountability, and clarity to ambiguous problems. I specialize in aligning stakeholders, managing
-            priorities, and ensuring work moves forward efficiently.</p>
+          <span class="about-label">ABOUT ME</span>
+          <h2>A generalist who delivers across data, marketing, and operations.</h2>
+          <p>I'm a marketing and analytics professional who sits comfortably at the intersection of strategy and execution. Whether I'm running a GTM campaign, building a KPI dashboard, coordinating a multi-team project, or analyzing marketplace data. I bring the same thing: structured thinking and clear outcomes.</p>
+          <p style="margin-top:0.75rem;">I've worked across e-commerce, B2B tech, and consulting environments, adapting quickly to new contexts while staying focused on delivering measurable results for stakeholders at all levels.</p>
+
           <ul class="strength-list">
-            <li><strong>Strategic Ownership:</strong> Responsibility for planning, alignment, and delivery outcomes</li>
-            <li><strong>Analytical Thinking:</strong> Data-informed execution decisions</li>
-            <li><strong>Cross-functional Delivery:</strong> Coordinating teams to keep initiatives on track</li>
+            <li><strong>Data-informed decisions:</strong> I analyze before I act, using competitive research, KPI tracking, and market data to inform strategy.</li>
+            <li><strong>Cross-functional execution:</strong> I coordinate across marketing, product, and ops teams to keep things moving and on time.</li>
+            <li><strong>Adaptable positioning:</strong> I've tailored work across product marketing, analytics, and project ops, and I thrive in roles where those overlap.</li>
+            <li><strong>AI-native mindset:</strong> I build with and leverage GenAI tools (Claude, ChatGPT, OpenAI APIs) to accelerate reporting, content, and workflows.</li>
           </ul>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:0.5rem;">
+            <a href="#contact" class="btn btn-primary" style="padding:12px 24px;font-size:0.88rem;">Get in Touch</a>
+            <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download class="btn btn-secondary" style="padding:12px 24px;font-size:0.88rem;">Download Resume</a>
+          </div>
         </div>
 
-        <!-- Abstract Visual Placeholder -->
-        <div class="about-visual">
-          <img src="assets/headshot.jpg"
-            alt="Portrait of Vaishnavi Narella, marketing and project management professional" class="about-img">
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section id="expertise" class="section section-bg">
+      <div class="container">
+        <div class="section-header-center reveal">
+          <span class="section-kicker">WHAT I BRING</span>
+          <h2>Four tracks. One common thread: outcomes.</h2>
+          <p>My experience spans marketing, analytics, and operations. Here's how I add value across each.</p>
+        </div>
+
+        <div class="expertise-grid reveal">
+
+          <div class="expertise-card">
+            <div class="expertise-card-icon">📈</div>
+            <div>
+              <h3>Product Marketing &amp; GTM</h3>
+              <p>I translate product features into compelling market narratives, execute go-to-market campaigns, and use competitive intelligence to sharpen positioning. I've driven a 12–15% conversion lift and 20% impression growth through targeted messaging and strategic product placement.</p>
+            </div>
+            <div class="expertise-tags">
+              <span class="chip">Go-to-Market Strategy</span>
+              <span class="chip">Product Positioning</span>
+              <span class="chip">Competitive Intel</span>
+              <span class="chip">Pricing Strategy</span>
+              <span class="chip">Customer Segmentation</span>
+            </div>
+          </div>
+
+          <div class="expertise-card teal-top">
+            <div class="expertise-card-icon">📊</div>
+            <div>
+              <h3>Data Analytics &amp; Reporting</h3>
+              <p>I gather, interpret, and present business data to support informed decisions, from building KPI dashboards in Excel to synthesizing competitive research into actionable reports. Actively developing SQL, Power BI, Tableau, and Google Analytics skills.</p>
+            </div>
+            <div class="expertise-tags">
+              <span class="chip">KPI Development</span>
+              <span class="chip">Excel &amp; Sheets</span>
+              <span class="chip">SQL (in progress)</span>
+              <span class="chip">Power BI / Tableau</span>
+              <span class="chip">Requirements Gathering</span>
+            </div>
+          </div>
+
+          <div class="expertise-card">
+            <div class="expertise-card-icon">🎯</div>
+            <div>
+              <h3>Digital Marketing &amp; Campaign Ops</h3>
+              <p>I plan and execute multi-channel marketing campaigns across Meta, eBay, Walmart, and email, from brief to reporting. I align messaging with audience segments, track engagement metrics, and iterate based on performance data. Secured a $50K contract renewal via competitive repositioning.</p>
+            </div>
+            <div class="expertise-tags">
+              <span class="chip">Meta Business Suite</span>
+              <span class="chip">SEO &amp; Keywords</span>
+              <span class="chip">Campaign Execution</span>
+              <span class="chip">Audience Segmentation</span>
+              <span class="chip">E-commerce Channels</span>
+            </div>
+          </div>
+
+          <div class="expertise-card teal-top">
+            <div class="expertise-card-icon">⚙️</div>
+            <div>
+              <h3>Project &amp; Process Management</h3>
+              <p>I coordinate across teams to keep initiatives on track, managing timelines, stakeholder communication, and delivery risks in parallel. I built repeatable workflows that increased team productivity by 25% and maintained 100% on-time delivery across 2.5 years of concurrent client engagements.</p>
+            </div>
+            <div class="expertise-tags">
+              <span class="chip">Cross-functional Coordination</span>
+              <span class="chip">Monday.com &amp; Asana</span>
+              <span class="chip">Stakeholder Management</span>
+              <span class="chip">Workflow Design</span>
+              <span class="chip">Agile / Scrum</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="section container">
-      <div class="section-header reveal">
-        <h2 class="section-title">My Expertise</h2>
-      </div>
-      <div class="services-grid reveal">
-        <article class="service-card">
-          <h3>Marketplace & E-commerce Optimization</h3>
-          <p>Marketplace listing optimization, SEO-ready titles, category alignment, pricing consistency, and
-            performance tracking across e-commerce channels.</p>
-          <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.5rem;">Experience improving discoverability and
-            conversion through standardized product content and repeatable processes.</p>
-          <div class="service-tags">
-            <span class="chip">eBay</span>
-            <span class="chip">Walmart</span>
-            <span class="chip">SEO</span>
-          </div>
-        </article>
-        <article class="service-card">
-          <h3>Campaigns & Content Execution</h3>
-          <p>End-to-end campaign execution across social and digital channels, from planning to content creation,
-            scheduling, and reporting.</p>
-          <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.5rem;">Focus on brand clarity, consistency, and
-            measurable outcomes using data-informed iteration.</p>
-          <div class="service-tags">
-            <span class="chip">Social Media</span>
-            <span class="chip">Content</span>
-            <span class="chip">Analytics</span>
-          </div>
-        </article>
-        <article class="service-card">
-          <h3>Project, Stakeholder & Process Delivery</h3>
-          <p>Cross-functional coordination, client stakeholder alignment, and structured execution in fast-paced
-            environments.</p>
-          <p class="text-muted" style="font-size: 0.9rem; margin-top: 0.5rem;">Workflow analysis and process design to
-            reduce ambiguity, improve delivery speed, and strengthen operational clarity.</p>
-          <div class="service-tags">
-            <span class="chip">Project Ops</span>
-            <span class="chip">Stakeholders</span>
-            <span class="chip">Workflows</span>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- SELECTED WORK -->
+    <section id="work" class="work-section">
+      <div class="work-container">
+        <div class="section-header-center reveal">
+          <span class="section-kicker teal">SELECTED WORK</span>
+          <h2>Projects that show the range.</h2>
+          <p>From AI product development to marketplace optimization and consulting strategy. Here's the work.</p>
+        </div>
 
-    <!-- WORK (Projects) -->
-    <section id="work" class="selected-work">
-      <div class="sw-container">
-        <h2 class="section-title" style="margin-bottom: 40px;">Selected Work</h2>
-
-        <!-- Featured -->
-        <a class="sw-card sw-featured" href="project-thunderbird-consulting.html"
-          aria-label="Open Thunderbird Consulting case study">
-          <div class="sw-card-body">
-            <div class="sw-kicker">Featured Case Study</div>
-            <div class="sw-title">Thunderbird Consulting</div>
-
-            <p class="sw-desc">
-              Diagnosed operational and process gaps, aligned cross-functional stakeholders, and designed scalable
-              operating guidelines
-              to improve execution clarity and decision-making.
-            </p>
-
+        <!-- Featured: CreativeLoop · orange gradient -->
+        <a class="sw-product-card reveal" href="https://creativeloop.app" target="_blank" rel="noopener noreferrer">
+          <div class="sw-product-emoji">🔁</div>
+          <div>
+            <div class="sw-kicker">
+              <span class="sw-live-dot"></span> LIVE PRODUCT I BUILT · FEATURED
+            </div>
+            <div class="sw-title">CreativeLoop</div>
+            <p class="sw-desc">Designed and built a full-stack AI SaaS platform that auto-generates a full week of branded social media content: AI images, captions, hashtags, and video scripts, delivered every Monday. Built with Next.js, OpenAI GPT-4, DALL·E 3, and Supabase.</p>
             <div class="sw-tags">
-              <span class="tag">Strategy</span>
-              <span class="tag">Process Design</span>
+              <span class="tag">AI Product</span>
+              <span class="tag">Full-Stack</span>
+              <span class="tag">GTM Strategy</span>
+              <span class="tag">Next.js · OpenAI · Supabase</span>
             </div>
-
-            <div class="sw-cta">
-              <span class="btn-primary">View Case Study →</span>
-            </div>
+          </div>
+          <div style="flex-shrink:0;display:flex;align-items:center;">
+            <span class="btn btn-white" style="white-space:nowrap;">Launch App ↗</span>
           </div>
         </a>
 
-        <!-- Two tiles -->
-        <div class="sw-grid">
-          <a class="sw-card sw-tile" href="experience-tradexa-project-coordinator.html"
-            aria-label="Open Tradexa Technology project">
-            <div class="sw-card-body">
-              <div class="sw-title">Tradexa Technology</div>
-              <p class="sw-desc">
-                Coordinated cross-functional delivery and improved workflows during high-pressure release cycles to
-                ensure consistent on-time execution.
-              </p>
+        <!-- Thunderbird Consulting · teal gradient -->
+        <a class="sw-card-teal reveal" href="project-thunderbird-consulting.html">
+          <div>
+            <div class="sw-kicker">CONSULTING CASE STUDY · THUNDERBIRD, ASU</div>
+            <div class="sw-title">Thunderbird Consulting Project</div>
+            <p class="sw-desc">Led a structured gap analysis for a real client organization, interviewing stakeholders, mapping process flows, and delivering a scalable operating framework adopted by the client. Recognized for strategic clarity and actionable recommendations.</p>
+            <div class="sw-tags">
+              <span class="tag">Strategy</span>
+              <span class="tag">Process Design</span>
+              <span class="tag">Stakeholder Management</span>
+              <span class="tag">Gap Analysis</span>
+            </div>
+          </div>
+          <div style="flex-shrink:0;display:flex;align-items:center;">
+            <span class="btn btn-white" style="white-space:nowrap;">View Case Study →</span>
+          </div>
+        </a>
 
+        <!-- Two dark tiles · Tradexa + Sper · uniform dark design -->
+        <div class="sw-grid reveal">
+
+          <a class="sw-tile" href="experience-tradexa-project-coordinator.html">
+            <div>
+              <div class="sw-kicker">PROJECT COORDINATION · 2.5 YEARS</div>
+              <div class="sw-title">Tradexa Technology</div>
+              <p class="sw-desc">Coordinated cross-functional GTM delivery across marketing, product, and ops, maintaining 100% on-time execution and securing a $50,000 contract renewal through competitive market analysis and strategic repositioning.</p>
               <div class="sw-tags">
                 <span class="tag">Project Ops</span>
+                <span class="tag">GTM Execution</span>
+                <span class="tag">Competitive Analysis</span>
               </div>
             </div>
-
-            <div class="sw-card-footer">
-              <span class="sw-link">View project →</span>
-              <span class="sw-result">Result: 100% On-time</span>
+            <div class="sw-tile-footer">
+              <span class="sw-tile-link">View project →</span>
+              <span class="sw-tile-result">$50K renewed · 100% on-time</span>
             </div>
           </a>
 
-          <a class="sw-card sw-tile" href="experience-sper-scientific.html" aria-label="Open Sper Scientific project">
-            <div class="sw-card-body">
+          <a class="sw-tile" href="experience-sper-scientific.html">
+            <div>
+              <div class="sw-kicker">PRODUCT MARKETING · E-COMMERCE</div>
               <div class="sw-title">Sper Scientific</div>
-              <p class="sw-desc">
-                Standardized and optimized high-volume product content to improve discoverability, consistency, and
-                conversion across commerce platforms.
-              </p>
-
+              <p class="sw-desc">Analyzed performance data, executed GTM campaigns, and optimized 150+ listings across eBay and Walmart, driving a 12–15% conversion lift and 20% increase in monthly product impressions through data-driven positioning.</p>
               <div class="sw-tags">
-                <span class="tag">Marketplace</span>
-                <span class="tag">Execution</span>
+                <span class="tag">Product Marketing</span>
+                <span class="tag">Data Analysis</span>
+                <span class="tag">E-commerce SEO</span>
               </div>
             </div>
-
-            <div class="sw-card-footer">
-              <span class="sw-link">View Case Study →</span>
-              <span class="sw-result">Result: Optimization</span>
+            <div class="sw-tile-footer">
+              <span class="sw-tile-link">View Case Study →</span>
+              <span class="sw-tile-result">12–15% CVR · 150+ listings</span>
             </div>
           </a>
+
         </div>
+
       </div>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience" class="section container">
       <div class="section-header reveal">
-        <h2 class="section-title">Experience</h2>
+        <span class="section-kicker">EXPERIENCE</span>
+        <h2 class="section-title" style="margin-top:0.5rem;">Where I've worked.</h2>
       </div>
       <div class="timeline reveal">
+
         <article class="timeline-card">
-          <a href="experience-sper-scientific.html" class="timeline-link-wrapper"
-            style="text-decoration: none; color: inherit; display: block;">
+          <a href="experience-sper-scientific.html" style="text-decoration:none;color:inherit;display:block;">
             <div class="timeline-header">
               <div>
-                <div class="role">Marketing & E-commerce Intern</div>
+                <div class="role">Marketing &amp; E-commerce Intern</div>
                 <div class="company">Sper Scientific</div>
               </div>
               <span class="timeline-date">Jul 2025 – Aug 2025</span>
             </div>
-            <p>Owned high-volume product content and marketplace execution, improving discoverability and conversion
-              through standardized listings, pricing coordination, and performance-driven optimizations across commerce
-              channels.</p>
-            <span class="btn-link"
-              style="margin-top: 0.5rem; display: inline-block; font-size: 0.9rem; font-weight: 600; color: var(--accent-main);">Read
-              more &rarr;</span>
+            <p>Owned high-volume product content and marketplace execution, improving discoverability and conversion through standardized listings, pricing coordination, and performance-driven optimizations across eBay and Walmart.</p>
+            <div class="outcome-chips" style="margin-top:0.75rem;">
+              <span class="chip">12–15% CVR lift</span>
+              <span class="chip teal">150+ listings optimized</span>
+            </div>
           </a>
         </article>
 
         <article class="timeline-card">
-          <a href="experience-tradexa-project-coordinator.html" class="timeline-link-wrapper"
-            style="text-decoration: none; color: inherit; display: block;">
+          <a href="experience-tradexa-project-coordinator.html" style="text-decoration:none;color:inherit;display:block;">
             <div class="timeline-header">
               <div>
                 <div class="role">Project Coordinator</div>
@@ -342,17 +392,16 @@
               </div>
               <span class="timeline-date">Jun 2022 – Dec 2024</span>
             </div>
-            <p>Led cross-functional delivery across product, operations, and stakeholders, maintaining 100% on-time
-              execution by introducing structured workflows and reducing delivery ambiguity.</p>
-            <span class="btn-link"
-              style="margin-top: 0.5rem; display: inline-block; font-size: 0.9rem; font-weight: 600; color: var(--accent-main);">Read
-              more &rarr;</span>
+            <p>Led cross-functional delivery across product, operations, and stakeholders, maintaining 100% on-time execution by introducing structured workflows and securing a $50K contract renewal through competitive repositioning.</p>
+            <div class="outcome-chips" style="margin-top:0.75rem;">
+              <span class="chip">$50K contract renewed</span>
+              <span class="chip teal">100% on-time · 2.5 yrs</span>
+            </div>
           </a>
         </article>
 
         <article class="timeline-card">
-          <a href="experience-tradexa-hr-intern.html" class="timeline-link-wrapper"
-            style="text-decoration: none; color: inherit; display: block;">
+          <a href="experience-tradexa-hr-intern.html" style="text-decoration:none;color:inherit;display:block;">
             <div class="timeline-header">
               <div>
                 <div class="role">Human Resources Intern</div>
@@ -360,28 +409,25 @@
               </div>
               <span class="timeline-date">Dec 2021 – Jun 2022</span>
             </div>
-            <p>Supported hiring and onboarding operations by improving documentation, coordination, and employee
-              readiness during periods of team growth.</p>
-            <span class="btn-link"
-              style="margin-top: 0.5rem; display: inline-block; font-size: 0.9rem; font-weight: 600; color: var(--accent-main);">Read
-              more &rarr;</span>
+            <p>Supported hiring and onboarding operations by improving documentation, coordination, and employee readiness during periods of team growth.</p>
           </a>
         </article>
+
       </div>
     </section>
 
     <!-- RESUME -->
     <section id="resume" class="section container">
       <div class="section-header reveal">
-        <h2 class="section-title">Resume</h2>
+        <span class="section-kicker">RESUME</span>
+        <h2 class="section-title" style="margin-top:0.5rem;">Skills &amp; background.</h2>
       </div>
       <div class="resume-content reveal">
         <div class="resume-layout">
           <div class="resume-sidebar">
             <div class="resume-section">
               <h3>Education</h3>
-              <p><strong>Master of Global Management</strong><br>Thunderbird (ASU)<br><span class="text-muted">Expected
-                  Dec 2026</span></p>
+              <p><strong>Master of Global Management</strong><br>Thunderbird, ASU<br><span style="color:var(--text-light);font-size:0.85rem;">Expected Dec 2026</span></p>
               <br>
               <p><strong>Bachelor of Business Admin</strong><br>Smt. Kashibai Navale College</p>
             </div>
@@ -393,45 +439,66 @@
                 <span class="chip">Monday.com</span>
                 <span class="chip">Workday</span>
                 <span class="chip">Excel</span>
+                <span class="chip">Jira</span>
+                <span class="chip">Slack</span>
+              </div>
+            </div>
+            <div class="resume-section">
+              <h3>Developing</h3>
+              <div class="pill-row">
+                <span class="chip teal">SQL</span>
+                <span class="chip teal">Power BI</span>
+                <span class="chip teal">Tableau</span>
+                <span class="chip teal">Google Analytics</span>
               </div>
             </div>
           </div>
 
           <div class="resume-main">
             <div class="resume-section">
-              <h3>Summary</h3>
-              <p>Marketing and project management professional with hands-on experience driving structured execution
-                across digital, operational, and cross-functional initiatives. Experienced in translating ambiguous
-                requirements into clear plans, coordinating stakeholders, and delivering outcomes in fast-paced
-                environments.</p>
+              <h3>Track Competencies</h3>
+              <div class="track-grid">
+                <div class="track-item">
+                  <h4>Product Marketing &amp; GTM</h4>
+                  <ul>
+                    <li>Positioning &amp; messaging strategy</li>
+                    <li>Competitive intelligence</li>
+                    <li>Go-to-market planning</li>
+                    <li>Pricing &amp; market entry</li>
+                  </ul>
+                </div>
+                <div class="track-item">
+                  <h4>Data Analytics</h4>
+                  <ul>
+                    <li>KPI development &amp; tracking</li>
+                    <li>Excel / Google Sheets</li>
+                    <li>Structured reporting</li>
+                    <li>Requirements gathering</li>
+                  </ul>
+                </div>
+                <div class="track-item">
+                  <h4>Digital Marketing Ops</h4>
+                  <ul>
+                    <li>Meta Business Suite</li>
+                    <li>SEO &amp; keyword optimization</li>
+                    <li>Multi-channel campaigns</li>
+                    <li>Audience segmentation</li>
+                  </ul>
+                </div>
+                <div class="track-item">
+                  <h4>Project Management</h4>
+                  <ul>
+                    <li>Cross-functional coordination</li>
+                    <li>Stakeholder communication</li>
+                    <li>Workflow design</li>
+                    <li>Agile / Scrum methodology</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="resume-actions">
-              <p style="width: 100%; margin-bottom: 1rem;">Prefer a recruiter-ready one-page resume? Download the PDF
-                version.</p>
-              <a href="assets/Vaishnavi_Narella_Resume.pdf" download class="btn btn-primary">Download PDF</a>
+            <div class="resume-actions" style="margin-top:2rem;">
+              <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download class="btn btn-primary">Download Full Resume</a>
               <button type="button" class="btn btn-secondary" onclick="window.print()">Print View</button>
-            </div>
-
-            <!-- New Compact Content Blocks -->
-            <div class="resume-additional-grid"
-              style="margin-top: 2.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem;">
-              <div class="resume-block-compact">
-                <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Core Strengths</h4>
-                <ul class="strength-list" style="font-size: 0.95rem; margin-bottom: 0;">
-                  <li>Structured execution in complex environments</li>
-                  <li>Cross-functional stakeholder coordination</li>
-                  <li>Data-informed planning and prioritization</li>
-                </ul>
-              </div>
-
-              <div class="resume-block-compact">
-                <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Highlights</h4>
-                <ul class="strength-list" style="font-size: 0.95rem; margin-bottom: 0;">
-                  <li>High-volume content and asset standardization across platforms and initiatives</li>
-                  <li>100% on-time delivery across client-facing and internal project phases</li>
-                  <li>End-to-end ownership from planning and coordination to execution and reporting</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -441,12 +508,12 @@
     <!-- CONTACT -->
     <section id="contact" class="section container">
       <div class="contact-panel reveal">
-        <h2 class="contact-headline">Let's work together.</h2>
-        <p class="contact-lead">Open to internships and full-time opportunities.</p>
+        <h2 class="contact-headline">Let's talk.</h2>
+        <p class="contact-sub">I'm actively looking for full-time roles in <strong>Product Marketing</strong>, <strong>Marketing Ops</strong>, <strong>Data Analytics</strong>, or <strong>Project Management</strong> · starting mid-2026. Based in Phoenix, AZ · Open to hybrid and remote.</p>
         <div class="contact-links">
-          <a href="mailto:vnarell2@asu.edu" class="btn btn-primary">Email Me</a>
-          <a href="https://linkedin.com/in/vaishnavi-narella" target="_blank" class="btn btn-secondary">LinkedIn
-            Look</a>
+          <a href="mailto:vnarell2@asu.edu" class="btn btn-white">Email Me</a>
+          <a href="https://linkedin.com/in/vaishnavi-narella" target="_blank" class="btn btn-secondary" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.3);">LinkedIn ↗</a>
+          <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download class="btn btn-secondary" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.3);">Resume PDF</a>
         </div>
       </div>
     </section>
@@ -459,5 +526,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
