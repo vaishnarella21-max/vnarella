@@ -156,7 +156,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   transition: background 0.2s;
 }
 .mobile-nav-links a:hover { background: var(--bg-off); }
-.menu-overlay.open { display: flex; }
+.menu-overlay.is-open { display: flex; }
 
 /* ===== BUTTONS ===== */
 .btn {
@@ -966,7 +966,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   :root { --space-2xl: 4rem; --space-xl: 3rem; --header-height: 64px; }
   .desktop-nav { display: none !important; }
   .nav-toggle { display: flex; }
-  .menu-overlay { display: flex; }
+  .menu-overlay { display: none; }
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .hero-title { font-size: 2.8rem; }
   .hero-tiles { flex-direction: row; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; gap: 12px; }
