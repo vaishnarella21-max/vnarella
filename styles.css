@@ -1001,9 +1001,32 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 @media (max-width: 640px) {
+  /* Prevent all horizontal overflow */
+  html, body { overflow-x: hidden; max-width: 100%; }
+
+  /* Hero */
+  .hero { padding-left: 16px; padding-right: 16px; }
+  .hero-inner { padding: 0; }
+  .hero-content { min-width: 0; max-width: 100%; }
   .hero-title { font-size: 2.2rem; }
+  .hero-tagline { font-size: 0.95rem; }
+  .hero-sub { font-size: 0.85rem; }
+
+  /* Badge — allow wrapping on small screens */
+  .hero-badge { white-space: normal; text-align: center; justify-content: center; }
+
+  /* Containers */
   .container { padding: 0 16px; }
   .work-container { padding: 0 16px; }
+
+  /* Thunderbird card — stack vertically, hide side button */
+  .sw-card-teal { grid-template-columns: 1fr; }
+  .sw-card-teal > *:last-child { display: none; }
+
+  /* Resume */
   .track-grid { grid-template-columns: 1fr; }
   .about-stat-row { flex-wrap: wrap; }
+
+  /* Section headers */
+  .section-header-center h2, .section-title { font-size: 1.6rem; }
 }
