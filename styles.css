@@ -976,7 +976,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   .stat-item:last-child { border-bottom: none; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-stat-row { flex-direction: row; }
-  .about-img-wrap { min-height: 300px; }
+  .about-img-wrap { min-height: 300px; margin-top: 2rem; }
   .about-img { min-height: 300px; }
   .expertise-grid { grid-template-columns: 1fr; }
   .sw-product-card { grid-template-columns: 1fr; gap: 1.25rem; }
