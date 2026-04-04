@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Build Your Bouquet — Bloom.</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;1,300;1,700&family=Caveat:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --coral:  #FF6854;
+      --yellow: #FFD93D;
+      --mint:   #5BC77A;
+      --rose:   #F472B6;
+      --cream:  #FFFBF5;
+      --cream2: #FFF5E8;
+      --dark:   #1C1028;
+      --mid:    #5E4D6A;
+      --light:  #F7F3FF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; min-height: 100vh; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 6%;
+      background: rgba(255,251,245,0.96); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .logo { font-family:'Fraunces',serif; font-style:italic; font-weight:700; font-size:1.85rem; color:var(--dark); text-decoration:none; }
+    .logo span { color:var(--coral); }
+    .nav-back { display:flex; align-items:center; gap:.5rem; font-size:.85rem; font-weight:600; color:var(--mid); text-decoration:none; transition:color .2s; }
+    .nav-back:hover { color:var(--dark); }
+    .nav-back svg { width:16px; height:16px; }
+
+    /* ── HERO HEADER ── */
+    .page-header {
+      padding: 7rem 6% 2.5rem;
+      text-align: center;
+    }
+    .page-header .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--yellow); color: var(--dark);
+      padding: .35rem 1rem; border-radius: 50px;
+      font-size: .78rem; font-weight: 700; margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.1;
+      color: var(--dark); margin-bottom: .5rem;
+    }
+    .page-header h1 em { color: var(--coral); font-style: italic; }
+    .page-header p { font-size: 1rem; color: var(--mid); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+    /* ── PROGRESS STEPS ── */
+    .progress-bar {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; padding: 2rem 6% 0; max-width: 600px; margin: 0 auto;
+    }
+    .step-dot {
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      flex: 1; position: relative; cursor: default;
+    }
+    .step-dot:not(:last-child)::after {
+      content: ''; position: absolute;
+      top: 18px; left: calc(50% + 18px); right: calc(-50% + 18px);
+      height: 2px; background: #E5DFF0;
+      transition: background .4s;
+    }
+    .step-dot.done:not(:last-child)::after { background: var(--coral); }
+    .step-circle {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .85rem;
+      border: 2px solid #E5DFF0; background: #fff; color: var(--mid);
+      transition: all .3s;
+    }
+    .step-dot.active .step-circle { border-color: var(--coral); background: var(--coral); color: #fff; }
+    .step-dot.done .step-circle  { border-color: var(--coral); background: var(--coral); color: #fff; }
+    .step-label { font-size: .72rem; font-weight: 600; color: var(--mid); text-align: center; white-space: nowrap; }
+    .step-dot.active .step-label { color: var(--coral); }
+
+    /* ── LAYOUT ── */
+    .wizard-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 2rem;
+      max-width: 1180px;
+      margin: 2rem auto 4rem;
+      padding: 0 6%;
+      align-items: start;
+    }
+    @media(max-width:900px) { .wizard-layout { grid-template-columns: 1fr; } }
+
+    /* ── STEP PANELS ── */
+    .step-panel { display: none; }
+    .step-panel.active { display: block; }
+
+    .step-title {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 700;
+      font-size: 1.6rem; color: var(--dark); margin-bottom: .3rem;
+    }
+    .step-sub { font-size: .9rem; color: var(--mid); margin-bottom: 1.8rem; line-height: 1.6; }
+
+    /* ── FLOWER GRID ── */
+    .flowers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+    .flower-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.3rem 1rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      border: 2.5px solid transparent;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      transition: all .22s;
+      position: relative;
+      user-select: none;
+    }
+    .flower-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.1); }
+    .flower-card.selected {
+      border-color: var(--coral);
+      background: #fff9f8;
+      box-shadow: 0 0 0 4px rgba(255,104,84,.1);
+    }
+    .flower-card .check {
+      position: absolute; top: .6rem; right: .6rem;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--coral); color: #fff;
+      font-size: .75rem; display: none;
+      align-items: center; justify-content: center;
+    }
+    .flower-card.selected .check { display: flex; }
+    .flower-emoji { font-size: 2.4rem; line-height: 1; margin-bottom: .6rem; display: block; }
+    .flower-icon-bg {
+      width: 64px; height: 64px; border-radius: 18px;
+      margin: 0 auto .8rem; display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+    }
+    .flower-name { font-weight: 700; font-size: .9rem; color: var(--dark); margin-bottom: .2rem; }
+    .flower-price { font-size: .75rem; color: var(--mid); margin-bottom: .4rem; }
+    .flower-tag {
+      display: inline-block; background: var(--light);
+      color: var(--mid); font-size: .65rem; font-weight: 600;
+      padding: .15rem .55rem; border-radius: 20px;
+    }
+
+    /* ── STEP 2 — QUANTITIES ── */
+    .qty-list { display: flex; flex-direction: column; gap: .85rem; }
+    .qty-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #fff; border-radius: 16px; padding: 1rem 1.3rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      gap: 1rem;
+    }
+    .qty-flower-info { display: flex; align-items: center; gap: .85rem; flex: 1; }
+    .qty-icon { font-size: 1.8rem; }
+    .qty-name { font-weight: 700; font-size: .95rem; color: var(--dark); }
+    .qty-unit { font-size: .75rem; color: var(--mid); margin-top: .1rem; }
+    .qty-controls { display: flex; align-items: center; gap: .7rem; flex-shrink: 0; }
+    .qty-btn {
+      width: 36px; height: 36px; border-radius: 50%; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 700; transition: all .15s;
+    }
+    .qty-btn.minus { background: var(--light); color: var(--mid); }
+    .qty-btn.minus:hover { background: #EDE7F6; }
+    .qty-btn.plus  { background: var(--coral); color: #fff; box-shadow: 0 4px 10px rgba(255,104,84,.35); }
+    .qty-btn.plus:hover { transform: scale(1.08); }
+    .qty-num {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 700;
+      font-size: 1.4rem; color: var(--dark); min-width: 28px; text-align: center;
+    }
+    .qty-subtotal { font-size: .8rem; font-weight: 700; color: var(--coral); min-width: 48px; text-align: right; }
+
+    /* ── STEP 3 — REVIEW ── */
+    .review-card {
+      background: #fff; border-radius: 20px; padding: 1.8rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.07); margin-bottom: 1.2rem;
+    }
+    .review-section-title { font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--mid); margin-bottom: 1rem; }
+    .review-flowers { display: flex; flex-direction: column; gap: .6rem; }
+    .review-row { display: flex; justify-content: space-between; align-items: center; font-size: .9rem; }
+    .review-row-left { display: flex; align-items: center; gap: .6rem; }
+    .review-row-emoji { font-size: 1.1rem; }
+    .review-row-name { color: var(--dark); font-weight: 500; }
+    .review-row-stems { font-size: .75rem; color: var(--mid); margin-left: .3rem; }
+    .review-row-price { font-weight: 700; color: var(--dark); }
+    .review-divider { height: 1px; background: rgba(0,0,0,.06); margin: 1rem 0; }
+    .review-total { display: flex; justify-content: space-between; align-items: center; }
+    .review-total-label { font-weight: 700; font-size: 1rem; color: var(--dark); }
+    .review-total-price { font-family: 'Fraunces',serif; font-style:italic; font-size: 1.6rem; font-weight: 700; color: var(--coral); }
+
+    .field-label { font-weight: 600; font-size: .85rem; color: var(--dark); margin-bottom: .5rem; display: block; }
+    .field-input, .field-textarea, .field-select {
+      width: 100%; padding: .85rem 1rem; border-radius: 12px;
+      border: 2px solid #E8E2F0; background: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; color: var(--dark);
+      outline: none; transition: border-color .2s;
+    }
+    .field-input:focus, .field-textarea:focus, .field-select:focus { border-color: var(--coral); }
+    .field-textarea { resize: vertical; min-height: 90px; }
+    .field-group { margin-bottom: 1.1rem; }
+    .days-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+    .day-btn {
+      padding: .6rem; border-radius: 10px; border: 2px solid #E8E2F0;
+      background: #fff; font-family: inherit; font-size: .8rem; font-weight: 600;
+      color: var(--mid); cursor: pointer; transition: all .18s; text-align: center;
+    }
+    .day-btn.active { border-color: var(--coral); background: #fff9f8; color: var(--coral); }
+
+    /* ── CONFIRMATION SCREEN ── */
+    .confirm-screen {
+      text-align: center; padding: 3rem 2rem;
+      display: none;
+    }
+    .confirm-screen.show { display: block; }
+    .confirm-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .confirm-screen h2 { font-family:'Fraunces',serif; font-style:italic; font-size:2.2rem; color:var(--dark); margin-bottom:.6rem; }
+    .confirm-screen p { color:var(--mid); font-size:1rem; line-height:1.7; max-width:420px; margin:0 auto 2rem; }
+
+    /* ── SIDEBAR SUMMARY ── */
+    .summary-card {
+      background: var(--dark); border-radius: 24px;
+      padding: 1.8rem; color: #fff; position: sticky; top: 6rem;
+    }
+    .summary-title { font-family:'Fraunces',serif; font-style:italic; font-weight:700; font-size:1.3rem; margin-bottom:1.2rem; }
+    .summary-empty { font-size:.85rem; color:rgba(255,255,255,.4); text-align:center; padding:1.5rem 0; }
+    .summary-items { display:flex; flex-direction:column; gap:.6rem; min-height: 80px; }
+    .summary-item { display:flex; align-items:center; gap:.7rem; }
+    .summary-item-emoji { font-size:1.3rem; }
+    .summary-item-info { flex:1; }
+    .summary-item-name { font-size:.85rem; font-weight:600; color:#fff; }
+    .summary-item-stems { font-size:.72rem; color:rgba(255,255,255,.5); }
+    .summary-item-price { font-size:.85rem; font-weight:700; color:var(--yellow); }
+    .summary-divider { height:1px; background:rgba(255,255,255,.1); margin:1rem 0; }
+    .summary-stem-count { font-size:.8rem; color:rgba(255,255,255,.6); margin-bottom:.3rem; }
+    .summary-total { font-family:'Fraunces',serif; font-style:italic; font-size:1.8rem; font-weight:700; color:var(--yellow); }
+    .summary-total-label { font-size:.75rem; color:rgba(255,255,255,.5); margin-bottom:.2rem; }
+    .summary-note { font-size:.72rem; color:rgba(255,255,255,.35); margin-top:.8rem; line-height:1.5; }
+
+    /* ── BUTTONS ── */
+    .btn-row { display:flex; gap:.8rem; margin-top:2rem; align-items:center; }
+    .btn-primary {
+      background: var(--coral); color: #fff; border: none;
+      padding: 1rem 2.2rem; border-radius: 50px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .92rem; font-weight: 700;
+      cursor: pointer; transition: all .2s;
+      box-shadow: 0 6px 18px rgba(255,104,84,.38);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,104,84,.48); }
+    .btn-primary:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .btn-secondary {
+      background: transparent; color: var(--mid); border: 2px solid #E8E2F0;
+      padding: 1rem 1.6rem; border-radius: 50px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .88rem; font-weight: 600;
+      cursor: pointer; transition: all .2s;
+    }
+    .btn-secondary:hover { border-color: var(--mid); color: var(--dark); }
+
+    /* ── SURPRISE CARD ── */
+    .surprise-card {
+      display: flex; align-items: center; gap: 1.4rem;
+      background: linear-gradient(135deg, var(--dark) 0%, #2D1B40 100%);
+      border-radius: 20px; padding: 1.5rem 1.8rem;
+      margin-bottom: 1.5rem; cursor: pointer;
+      border: 3px solid transparent;
+      transition: all .25s; position: relative; overflow: hidden;
+    }
+    .surprise-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,217,61,.12), rgba(255,104,84,.1));
+      opacity: 0; transition: opacity .25s;
+    }
+    .surprise-card:hover::before { opacity: 1; }
+    .surprise-card.chosen { border-color: var(--yellow); }
+    .surprise-card.chosen::before { opacity: 1; }
+    .surprise-icon { font-size: 2.8rem; flex-shrink: 0; line-height: 1; }
+    .surprise-text { flex: 1; }
+    .surprise-title {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 700;
+      font-size: 1.25rem; color: #fff; margin-bottom: .25rem;
+    }
+    .surprise-desc { font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+    .surprise-badge {
+      background: var(--yellow); color: var(--dark);
+      font-size: .7rem; font-weight: 800; padding: .3rem .75rem;
+      border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+    }
+    .surprise-card.chosen .surprise-badge { background: var(--mint); }
+    .or-divider {
+      display: flex; align-items: center; gap: 1rem;
+      color: var(--mid); font-size: .8rem; font-weight: 600;
+      margin-bottom: 1.3rem; text-transform: uppercase; letter-spacing: .07em;
+    }
+    .or-divider::before, .or-divider::after {
+      content: ''; flex: 1; height: 1px; background: #E8E2F0;
+    }
+    .flowers-grid.dimmed { opacity: .35; pointer-events: none; }
+
+    /* ── MISC ── */
+    .stag {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--light); color: var(--mid);
+      padding: .3rem .9rem; border-radius: 50px;
+      font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    }
+    .empty-msg { font-size:.85rem; color:var(--mid); padding:1rem 0; }
+    .fade-in { animation: fadeUp .4s ease both; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="./">Bloom<span>.</span></a>
+  <a class="nav-back" href="./">
+
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M10 12L6 8l4-4"/>
+    </svg>
+    Back to main site
+  </a>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="eyebrow">✦ Custom Bouquet Builder</div>
+  <h1>Build your <em>perfect</em> bouquet.</h1>
+  <p>Pick the exact flowers you love, set how many stems of each, and we'll hand-arrange it just for you.</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar" id="progressBar">
+  <div class="step-dot active" id="dot1">
+    <div class="step-circle">1</div>
+    <div class="step-label">Pick flowers</div>
+  </div>
+  <div class="step-dot" id="dot2">
+    <div class="step-circle">2</div>
+    <div class="step-label">Set quantities</div>
+  </div>
+  <div class="step-dot" id="dot3">
+    <div class="step-circle">3</div>
+    <div class="step-label">Review</div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="wizard-layout" id="wizardLayout">
+
+  <!-- LEFT: STEP PANELS -->
+  <div>
+
+    <!-- ── STEP 1: PICK FLOWERS ── -->
+    <div class="step-panel active fade-in" id="step1">
+      <div class="step-title">Which flowers do you love?</div>
+      <p class="step-sub">Curate your own mix — or let our florists surprise you every week.</p>
+
+      <!-- SURPRISE ME OPTION -->
+      <div class="surprise-card" id="surpriseCard" onclick="toggleSurprise()">
+        <div class="surprise-icon">🎲</div>
+        <div class="surprise-text">
+          <div class="surprise-title">Surprise me every week</div>
+          <div class="surprise-desc">Leave it to our florists — they'll hand-pick the most beautiful seasonal stems and compose something different every delivery.</div>
+        </div>
+        <div class="surprise-badge" id="surpriseBadge">Choose this</div>
+      </div>
+
+      <div class="or-divider">or pick your own</div>
+
+      <div class="flowers-grid" id="flowersGrid"></div>
+      <div class="btn-row">
+        <button class="btn-primary" id="toStep2Btn" disabled onclick="handleStep1Next()">Continue →</button>
+        <span id="selectedCount" style="font-size:.85rem;color:var(--mid)">Select flowers or choose Surprise me</span>
+      </div>
+    </div>
+
+    <!-- ── STEP 2: SET QUANTITIES ── -->
+    <div class="step-panel" id="step2">
+      <div class="step-title">How many stems of each?</div>
+      <p class="step-sub">Adjust the stem count for each flower. Our florists recommend 3–8 stems per type for a full, balanced look.</p>
+      <div class="qty-list" id="qtyList"></div>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="goToStep(3)">Review bouquet →</button>
+        <button class="btn-secondary" onclick="goToStep(1)">← Back</button>
+      </div>
+    </div>
+
+    <!-- ── STEP 3: REVIEW ── -->
+    <div class="step-panel" id="step3">
+      <div class="step-title">Review &amp; personalise</div>
+      <p class="step-sub">Almost there! Add any special touches and confirm your custom bouquet.</p>
+
+      <div class="review-card" id="reviewSummary"></div>
+
+      <div class="review-card">
+        <div class="review-section-title">Delivery preferences</div>
+        <div class="field-group">
+          <label class="field-label">Preferred delivery day</label>
+          <div class="days-grid" id="daysGrid"></div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Delivery address</label>
+          <input class="field-input" type="text" placeholder="123 Maple Street, New York, NY 10001"/>
+        </div>
+        <div class="field-group" style="margin-bottom:0">
+          <label class="field-label">Add a personal note <span style="font-weight:400;color:var(--mid)">(optional)</span></label>
+          <textarea class="field-textarea" placeholder="e.g. 'This is for my mom's birthday — she loves peonies!' Our florists love a good note 💐"></textarea>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" onclick="placeOrder()">Place my order ✦</button>
+        <button class="btn-secondary" onclick="goToStep(2)">← Back</button>
+      </div>
+    </div>
+
+    <!-- ── CONFIRMATION ── -->
+    <div class="confirm-screen" id="confirmScreen">
+      <div class="confirm-icon">🌸</div>
+      <h2>Your bouquet is confirmed!</h2>
+      <p>Our florists have received your order and are already sourcing the freshest stems. You'll get a confirmation email with your delivery details shortly.</p>
+      <button class="btn-primary" onclick="window.location.href='bloom-subscription.html'">Back to Bloom. →</button>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: LIVE SUMMARY ── -->
+  <div>
+    <div class="summary-card" id="summarySidebar">
+      <div class="summary-title">Your bouquet ✦</div>
+      <div class="summary-items" id="summaryItems">
+        <div class="summary-empty" id="summaryEmpty">No flowers selected yet — start picking!</div>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-total-label">Estimated total</div>
+      <div class="summary-total" id="summaryTotal">$0.00</div>
+      <div class="summary-stem-count" id="summaryStemCount"></div>
+      <div class="summary-note">Price is per bouquet. Delivery included on all plans. Final arrangement may vary slightly based on seasonal availability.</div>
+    </div>
+  </div>
+
+</div><!-- /wizard-layout -->
+
+<script>
+  // ── FLOWER DATA ──
+  const FLOWERS = [
+    { id:'roses',      name:'Garden Roses',   emoji:'🌹', price:2.50, tag:'Romance',  bg:'#FFF0F3', desc:'Classic & timeless' },
+    { id:'peonies',    name:'Peonies',         emoji:'🌸', price:4.00, tag:'Soft',     bg:'#FFF0F9', desc:'Lush & romantic'   },
+    { id:'tulips',     name:'Tulips',          emoji:'🌷', price:1.50, tag:'Spring',   bg:'#FFF5F0', desc:'Fresh & elegant'   },
+    { id:'sunflowers', name:'Sunflowers',      emoji:'🌻', price:2.00, tag:'Bright',   bg:'#FFFBF0', desc:'Bold & cheerful'   },
+    { id:'dahlias',    name:'Dahlias',         emoji:'🌺', price:3.50, tag:'Drama',    bg:'#FFF0F0', desc:'Statement blooms'  },
+    { id:'ranunculus', name:'Ranunculus',      emoji:'🌼', price:3.00, tag:'Delicate', bg:'#F0FFF8', desc:'Layered petals'    },
+    { id:'babysbreath',name:"Baby's Breath",   emoji:'🤍', price:1.00, tag:'Filler',   bg:'#F8F8FF', desc:'Airy & soft'       },
+    { id:'lavender',   name:'Lavender',        emoji:'💜', price:2.00, tag:'Calming',  bg:'#F5F0FF', desc:'Fragrant & wild'   },
+    { id:'anemones',   name:'Anemones',        emoji:'🖤', price:3.50, tag:'Moody',    bg:'#F5F5F5', desc:'Dramatic centers'  },
+    { id:'eucalyptus', name:'Eucalyptus',      emoji:'🌿', price:1.50, tag:'Green',    bg:'#F0FFF4', desc:'Fresh & aromatic'  },
+    { id:'chamomile',  name:'Chamomile',       emoji:'🌼', price:1.50, tag:'Wildflower',bg:'#FFFDF0',desc:'Meadow & free'     },
+    { id:'lisianthus', name:'Lisianthus',      emoji:'🪷', price:2.50, tag:'Elegant',  bg:'#FAF0FF', desc:'Ruffled & refined' },
+  ];
+
+  let selected = {}; // { flowerId: { qty: N } }
+  let selectedDay = '';
+  let surpriseMode = false;
+
+  // ── RENDER FLOWER GRID ──
+  function renderFlowerGrid() {
+    const grid = document.getElementById('flowersGrid');
+    grid.innerHTML = FLOWERS.map(f => `
+      <div class="flower-card ${selected[f.id] ? 'selected' : ''}" onclick="toggleFlower('${f.id}')" id="fc_${f.id}">
+        <div class="check">✓</div>
+        <div class="flower-icon-bg" style="background:${f.bg}">${f.emoji}</div>
+        <div class="flower-name">${f.name}</div>
+        <div class="flower-price">$${f.price.toFixed(2)} / stem</div>
+        <span class="flower-tag">${f.tag}</span>
+      </div>
+    `).join('');
+  }
+
+  function toggleFlower(id) {
+    if (selected[id]) {
+      delete selected[id];
+    } else {
+      selected[id] = { qty: 5 };
+    }
+    const card = document.getElementById('fc_' + id);
+    card.classList.toggle('selected', !!selected[id]);
+    const check = card.querySelector('.check');
+    check.style.display = selected[id] ? 'flex' : 'none';
+    updateCountBtn();
+    updateSidebar();
+  }
+
+  function toggleSurprise() {
+    surpriseMode = !surpriseMode;
+    const card = document.getElementById('surpriseCard');
+    const badge = document.getElementById('surpriseBadge');
+    const grid = document.getElementById('flowersGrid');
+    card.classList.toggle('chosen', surpriseMode);
+    badge.textContent = surpriseMode ? '✓ Selected' : 'Choose this';
+    grid.classList.toggle('dimmed', surpriseMode);
+    if (surpriseMode) {
+      selected = {};
+      renderFlowerGrid();
+      updateSidebar();
+    }
+    updateCountBtn();
+  }
+
+  function handleStep1Next() {
+    if (surpriseMode) {
+      goToStep(3); // skip qty step — go straight to review
+    } else {
+      goToStep(2);
+    }
+  }
+
+  function updateCountBtn() {
+    const n = Object.keys(selected).length;
+    const btn = document.getElementById('toStep2Btn');
+    const msg = document.getElementById('selectedCount');
+    btn.disabled = n === 0 && !surpriseMode;
+    if (surpriseMode) {
+      msg.textContent = '🎲 Florist\'s choice selected';
+    } else {
+      msg.textContent = n === 0 ? 'Select flowers or choose Surprise me' : `${n} flower${n>1?'s':''} selected`;
+    }
+  }
+
+  // ── RENDER QTY LIST ──
+  function renderQtyList() {
+    const list = document.getElementById('qtyList');
+    const ids = Object.keys(selected);
+    if (!ids.length) { list.innerHTML = '<p class="empty-msg">No flowers selected.</p>'; return; }
+    list.innerHTML = ids.map(id => {
+      const f = FLOWERS.find(x => x.id === id);
+      const qty = selected[id].qty;
+      const sub = (f.price * qty).toFixed(2);
+      return `
+        <div class="qty-row" id="qr_${id}">
+          <div class="qty-flower-info">
+            <span class="qty-icon">${f.emoji}</span>
+            <div>
+              <div class="qty-name">${f.name}</div>
+              <div class="qty-unit">$${f.price.toFixed(2)} per stem</div>
+            </div>
+          </div>
+          <div class="qty-controls">
+            <button class="qty-btn minus" onclick="changeQty('${id}',-1)">−</button>
+            <div class="qty-num" id="qnum_${id}">${qty}</div>
+            <button class="qty-btn plus"  onclick="changeQty('${id}',+1)">+</button>
+          </div>
+          <div class="qty-subtotal" id="qsub_${id}">$${sub}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function changeQty(id, delta) {
+    const cur = selected[id].qty;
+    const next = Math.max(1, Math.min(30, cur + delta));
+    selected[id].qty = next;
+    const f = FLOWERS.find(x => x.id === id);
+    document.getElementById('qnum_' + id).textContent = next;
+    document.getElementById('qsub_' + id).textContent = '$' + (f.price * next).toFixed(2);
+    updateSidebar();
+  }
+
+  // ── LIVE SIDEBAR ──
+  function updateSidebar() {
+    const ids = Object.keys(selected);
+    const empty = document.getElementById('summaryEmpty');
+    const items = document.getElementById('summaryItems');
+    const total = document.getElementById('summaryTotal');
+    const stemCount = document.getElementById('summaryStemCount');
+
+    if (surpriseMode) {
+      items.innerHTML = `<div class="summary-item"><span class="summary-item-emoji">🎲</span><div class="summary-item-info"><div class="summary-item-name">Florist's Surprise</div><div class="summary-item-stems">Curated weekly by our team</div></div></div>`;
+      total.textContent = 'Plan price';
+      stemCount.textContent = 'Varies each week';
+      return;
+    }
+    if (!ids.length) {
+      items.innerHTML = '<div class="summary-empty" id="summaryEmpty">No flowers selected yet — start picking!</div>';
+      total.textContent = '$0.00';
+      stemCount.textContent = '';
+      return;
+    }
+
+    let grand = 0, stems = 0;
+    items.innerHTML = ids.map(id => {
+      const f = FLOWERS.find(x => x.id === id);
+      const qty = selected[id].qty;
+      const sub = f.price * qty;
+      grand += sub; stems += qty;
+      return `
+        <div class="summary-item">
+          <span class="summary-item-emoji">${f.emoji}</span>
+          <div class="summary-item-info">
+            <div class="summary-item-name">${f.name}</div>
+            <div class="summary-item-stems">${qty} stem${qty>1?'s':''}</div>
+          </div>
+          <span class="summary-item-price">$${sub.toFixed(2)}</span>
+        </div>
+      `;
+    }).join('');
+
+    total.textContent = '$' + grand.toFixed(2);
+    stemCount.textContent = stems + ' total stems';
+  }
+
+  // ── RENDER REVIEW ──
+  function renderReview() {
+    if (surpriseMode) {
+      document.getElementById('reviewSummary').innerHTML = `
+        <div style="display:flex;align-items:center;gap:1.2rem;padding:.4rem 0">
+          <div style="font-size:3rem;line-height:1">🎲</div>
+          <div>
+            <div class="review-section-title" style="margin-bottom:.3rem">Florist's Weekly Surprise</div>
+            <div style="font-size:.9rem;color:var(--mid);line-height:1.65">Our florists will hand-select the season's most beautiful stems and compose a one-of-a-kind bouquet — different every single week. Pricing based on your chosen plan.</div>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    const ids = Object.keys(selected);
+    let grand = 0, stems = 0;
+    const rows = ids.map(id => {
+      const f = FLOWERS.find(x => x.id === id);
+      const qty = selected[id].qty;
+      const sub = f.price * qty;
+      grand += sub; stems += qty;
+      return `
+        <div class="review-row">
+          <div class="review-row-left">
+            <span class="review-row-emoji">${f.emoji}</span>
+            <span class="review-row-name">${f.name}</span>
+            <span class="review-row-stems">(${qty} stem${qty>1?'s':''})</span>
+          </div>
+          <span class="review-row-price">$${sub.toFixed(2)}</span>
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('reviewSummary').innerHTML = `
+      <div class="review-section-title">Your flowers (${stems} stems)</div>
+      <div class="review-flowers">${rows}</div>
+      <div class="review-divider"></div>
+      <div class="review-total">
+        <div class="review-total-label">Total</div>
+        <div class="review-total-price">$${grand.toFixed(2)}</div>
+      </div>
+    `;
+  }
+
+  // ── DAYS GRID ──
+  function renderDays() {
+    const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    document.getElementById('daysGrid').innerHTML = days.map(d => `
+      <button class="day-btn ${selectedDay===d?'active':''}" onclick="selectDay('${d}')">${d.slice(0,3)}</button>
+    `).join('');
+  }
+  function selectDay(d) {
+    selectedDay = d;
+    renderDays();
+  }
+
+  // ── NAVIGATION ──
+  function goToStep(n) {
+    // In surprise mode, step 2 is skipped — mark it done automatically
+    const effectiveN = (surpriseMode && n === 3) ? 3 : n;
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.step-dot').forEach((dot, i) => {
+      dot.classList.remove('active','done');
+      const dotN = i + 1;
+      if (surpriseMode && n === 3) {
+        if (dotN < 3) dot.classList.add('done');
+        if (dotN === 3) dot.classList.add('active');
+      } else {
+        if (dotN < n) dot.classList.add('done');
+        if (dotN === n) dot.classList.add('active');
+      }
+    });
+
+    const panel = document.getElementById('step' + n);
+    panel.classList.add('active', 'fade-in');
+
+    if (n === 2) renderQtyList();
+    if (n === 3) { renderReview(); renderDays(); }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function placeOrder() {
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.step-dot').forEach(d => d.classList.add('done'));
+    document.getElementById('wizardLayout').style.gridTemplateColumns = '1fr';
+    document.getElementById('summarySidebar').style.display = 'none';
+    document.getElementById('confirmScreen').classList.add('show', 'fade-in');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── INIT ──
+  renderFlowerGrid();
+  updateSidebar();
+</script>
+</body>
+</html>
