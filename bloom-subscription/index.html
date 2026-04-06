@@ -352,7 +352,7 @@
     <span class="hero-sub">handpicked by our florists, just for you ✨</span>
     <p class="hero-desc">We partner with the finest American flower farms to bring you stunning seasonal bouquets — straight to your front door, every single week. No errands. Just beautiful flowers, always fresh.</p>
     <div class="hero-btns">
-      <button class="btn-coral" onclick="window.location.href='customize.html'">Build my bouquet →</button>
+      <button class="btn-coral" onclick="window.location.href='customize/'">Build my bouquet →</button>
       <button class="btn-outline" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See how it works</button>
     </div>
     <div class="hero-stats">
@@ -495,7 +495,7 @@
       </div>
 
       <div>
-        <button class="btn-coral" onclick="window.location.href='customize.html'">Build my bouquet →</button>
+        <button class="btn-coral" onclick="window.location.href='customize/'">Build my bouquet →</button>
       </div>
     </div>
 
@@ -679,7 +679,7 @@ function switchF(f){freq=f;document.getElementById('sw-wk').classList.toggle('on
 function pickPlan(n,p){launchPetals(20);alert(`Great choice! 🌸\n\nYou selected the ${n} plan at $${p}/${freq==='weekly'?'week':'delivery'}.\n\nIn a live site, this would open checkout!`);}
 
 /* Email */
-function handleCTA(){const v=document.getElementById('ctaEmail').value.trim();if(!v||!v.includes('@')){alert('Please enter a valid email!');return;}launchPetals(22);window.location.href='customize.html';}
+function handleCTA(){const v=document.getElementById('ctaEmail').value.trim();if(!v||!v.includes('@')){alert('Please enter a valid email!');return;}launchPetals(22);window.location.href='customize/';}
 
 /* Petals */
 const PETALS=['🌸','🌷','🌼','🌺','💮','🌹'];
