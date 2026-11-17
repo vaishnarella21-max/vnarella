@@ -1,537 +1,885 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vaishnavi Narella · Product Marketing, Data Analytics, Marketing Operations & Project Management">
-  <title>Vaishnavi Narella | Portfolio</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css">
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaishnavi Narella | Consulting, Analytics &amp; Operations</title>
+<meta name="description" content="Vaishnavi Narella: Thunderbird (ASU) master's graduate seeking full-time roles in consulting and strategy, business analytics, project management, and marketing operations. Based in Phoenix, AZ.">
+<meta property="og:title" content="Vaishnavi Narella | Portfolio">
+<meta property="og:description" content="Consulting, analytics, and operations. Phoenix, AZ.">
+<meta property="og:image" content="assets/vaishnavi.jpg">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&amp;family=Jost:wght@400;500;600&amp;family=Noto+Serif+Devanagari:wght@400;600&amp;display=swap">
+<style>
+  :root{
+    --maroon:#5C1A18;
+    --wine:#5C1A18;
+    --wine-2:#7A2420;
+    --forest:#2E3B26;
+    --forest-2:#3C4B31;
+    --cream:#FAF3E7;
+    --paper:#FFFCF5;
+    --tint:#F3E8D2;
+    --ink:#2B211A;
+    --ink-soft:#6B5C4C;
+    --gold:#B8894B;
+    --gold-ink:#7D500F;
+    --gold-lt:#D9B36E;
+    --line:rgba(43,33,26,0.16);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:radial-gradient(ellipse 1200px 800px at 50% 0%, #FEF9EF 0%, var(--cream) 55%, #F3E5CB 100%);color:var(--ink);font-family:'Jost',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;margin:0;font-weight:500;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  .mr{font-family:'Noto Serif Devanagari',serif;}
+  section[id]{scroll-margin-top:84px;}
+
+  /* ---------- focus: always visible for keyboard users ---------- */
+  :focus-visible{outline:2px solid var(--gold-ink);outline-offset:3px;border-radius:4px;}
+  .on-dark :focus-visible{outline-color:var(--gold-lt);}
+  .skip{position:absolute;left:-9999px;top:10px;z-index:100;background:var(--wine);color:var(--cream);padding:12px 20px;border-radius:999px;font-weight:500;font-size:14px;}
+  .skip:focus{left:16px;}
+
+  /* ---------- type helpers ---------- */
+  .eyebrow{font-family:'Fraunces',serif;font-size:14px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink);}
+  .cap{font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);}
+  .on-dark .eyebrow,.on-dark .cap{color:var(--gold-lt);}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:44px;padding-right:44px;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{display:inline-flex;font-size:11.5px;font-weight:500;letter-spacing:.03em;padding:7px 13px;border-radius:999px;border:1px solid rgba(43,33,26,0.22);color:var(--ink-soft);}
+  .chip-gold{border-color:var(--gold);color:var(--gold-ink);}
+  .chip-dark{border-color:rgba(250,243,231,0.34);color:#E6D9CC;}
+  .chip-dark-gold{border-color:var(--gold-lt);color:var(--gold-lt);}
+  .tile-icon{width:44px;height:44px;border-radius:10px;background:rgba(184,137,75,0.16);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .on-dark .tile-icon{background:rgba(217,179,110,0.2);}
+
+  /* ---------- buttons: colour change on hover, never opacity ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:13px 30px;border-radius:999px;font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-family:'Jost',sans-serif;border:1.5px solid transparent;cursor:pointer;transition:background-color .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .12s ease;}
+  .btn:active{transform:translateY(1px);}
+  .btn-wine{background:var(--wine);color:var(--cream);}
+  .btn-line-wine{background:transparent;color:var(--wine);border-color:var(--wine);}
+  .btn-cream{background:var(--cream);color:var(--wine);}
+  .btn-line-cream{background:transparent;color:var(--cream);border-color:rgba(250,243,231,0.6);}
+  .btn-sm{min-height:44px;padding:10px 22px;}
+
+  /* ---------- nav ---------- */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(250,243,231,0.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-in{padding-top:12px;padding-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .logo{font-family:'Fraunces',serif;font-weight:500;font-size:20px;letter-spacing:.02em;color:var(--ink);padding:8px 4px;}
+  .logo span{color:var(--gold);}
+  .navlinks{display:flex;align-items:center;gap:6px;}
+  .navlink{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font-size:12.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);transition:color .15s ease;}
+  .navlink::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .2s ease;}
+  .menu{display:none;position:relative;}
+  .menu summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);font-size:12.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);}
+  .menu summary::-webkit-details-marker{display:none;}
+  .menu[open] summary{background:var(--tint);}
+  .menu-panel{position:absolute;right:0;top:calc(100% + 8px);min-width:220px;background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 34px rgba(43,33,26,0.16);padding:8px;display:flex;flex-direction:column;}
+  .menu-panel a{display:flex;align-items:center;min-height:46px;padding:0 14px;border-radius:6px;font-size:14px;font-weight:500;color:var(--ink);}
+  .nav-right{display:flex;align-items:center;gap:10px;}
+
+  /* ---------- hero ---------- */
+  .hero-grid{padding-top:64px;padding-bottom:56px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
+  .hero-copy{display:flex;flex-direction:column;gap:18px;}
+  .status-chip{width:fit-content;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.03em;padding:8px 14px;border-radius:999px;background:rgba(184,137,75,0.12);border:1px solid rgba(125,80,15,0.4);color:var(--wine);}
+  .status-chip i{width:7px;height:7px;border-radius:50%;background:#3F7D2E;display:block;}
+  .meta{display:flex;gap:36px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line);margin-top:6px;}
+  .meta-v{font-size:14px;color:var(--ink);margin-top:4px;font-weight:500;}
+  .tile{display:flex;gap:14px;align-items:center;background:var(--paper);border:1px solid rgba(184,137,75,0.4);border-radius:6px;padding:18px 20px;}
+  .tile h3{font-family:'Jost',sans-serif;font-size:14.5px;font-weight:600;color:var(--ink);}
+  .tile p{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+
+  /* ---------- stats ---------- */
+  .stats{padding-top:40px;padding-bottom:40px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;}
+  .stat-n{font-family:'Fraunces',serif;font-weight:500;font-size:34px;color:var(--gold-lt);line-height:1.1;}
+  .stat-t{font-size:14px;color:var(--cream);font-weight:600;margin-top:6px;}
+  .stat-s{font-size:12.5px;color:#D9C6B0;margin-top:2px;line-height:1.5;}
+
+  /* ---------- sections ---------- */
+  .sec-pad{padding-top:80px;padding-bottom:80px;}
+  .sec-head{text-align:center;max-width:620px;margin:0 auto 44px;}
+  .sec-head h2{font-size:clamp(28px,3.8vw,40px);margin-top:14px;line-height:1.2;}
+  .sec-head p{font-size:15.5px;margin-top:12px;line-height:1.65;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+  .about-list{margin:4px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:10px;}
+  .about-list li{font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+  .about-list strong{color:var(--ink);}
+  .resume-grid{display:grid;grid-template-columns:0.8fr 1.5fr;gap:56px;}
+  .group-title{font-family:'Jost',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin:0 0 18px;display:flex;align-items:center;gap:14px;}
+  .group-title::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  /* expertise cards: informational, so no hover effect */
+  .xcard{background:var(--forest-2);border-radius:6px;padding:30px;display:flex;flex-direction:column;gap:14px;border-top:3px solid var(--gold-lt);}
+  .xcard h3{font-size:19px;color:var(--cream);}
+  .xcard p{font-size:14px;line-height:1.65;color:#E0D8C9;}
+
+  /* project cards */
+  .pcard h3{font-size:19px;color:var(--ink);line-height:1.3;}
+  .pcard p{font-size:14px;line-height:1.65;color:var(--ink-soft);}
+  .lcard{display:flex;flex-direction:column;gap:12px;border-radius:6px;padding:30px 30px 26px;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;}
+  .lcard h3{font-size:21px;color:var(--cream);line-height:1.25;}
+  .lcard .cap{color:var(--gold-lt);}
+  .lcard p{font-size:14.5px;line-height:1.65;font-weight:400;}
+  .lcard .cta{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:11px 22px;border-radius:999px;background:var(--cream);color:var(--wine);font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;transition:background-color .18s ease;}
+  .lcard .cta svg{transition:transform .2s ease;}
+  .lcard-wine{background:var(--wine);}
+  .lcard-wine p{color:#EADFD2;}
+  .lcard-forest{background:var(--forest);}
+  .lcard-forest p{color:#DDD6C8;}
+  .lcard-bloom{background:#3D1A2E;}
+  .lcard-bloom p{color:#EADFD2;}
+  .lcard-amber{background:linear-gradient(135deg,#6B2F0E 0%,#A8431A 100%);}
+  .lcard-amber p{color:#FFEAD9;}
+  .live-dot{width:7px;height:7px;border-radius:50%;background:#8FD17A;display:inline-block;}
+
+  /* experience accordion */
+  .xp{border:1px solid var(--line);border-radius:6px;background:transparent;transition:background-color .18s ease,border-color .18s ease;}
+  .xp[open]{background:var(--paper);border-color:rgba(125,80,15,0.4);}
+  .xp summary{list-style:none;cursor:pointer;display:block;padding:26px 30px;border-radius:6px;}
+  .xp summary::-webkit-details-marker{display:none;}
+  .xp-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;}
+  .xp-role{font-size:19px;color:var(--ink);}
+  .xp-co{display:block;font-size:14px;color:var(--wine);margin-top:2px;font-weight:600;}
+  .xp-lead{display:block;font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin-top:14px;}
+  .xp .chips{margin-top:14px;}
+  .xp-toggle{display:inline-flex;align-items:center;gap:8px;margin-top:16px;min-height:32px;font-size:12.5px;font-weight:600;color:var(--wine);letter-spacing:.06em;text-transform:uppercase;}
+  .xp-toggle svg{transition:transform .2s ease;}
+  .xp .t-open{display:none;}
+  .xp[open] .t-open{display:inline;}
+  .xp[open] .t-closed{display:none;}
+  .xp[open] .xp-toggle svg{transform:rotate(180deg);}
+  .xp-body{padding:0 30px 28px;}
+  .xp-body ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:20px;}
+  .xp-body li{font-size:14.5px;line-height:1.65;color:var(--ink-soft);}
+  .xp-body li strong{color:var(--ink);font-weight:600;}
+  .xp-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;min-height:44px;font-size:13px;font-weight:600;color:var(--wine);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(92,26,24,0.35);}
+
+  /* resume */
+  .res-h{font-family:'Jost',sans-serif;font-size:12.5px;font-weight:600;color:var(--gold-lt);letter-spacing:.16em;text-transform:uppercase;}
+  .res-p{font-size:14.5px;color:var(--cream);margin-top:10px;line-height:1.6;}
+  .res-p small{color:#C9BBA6;font-size:13px;}
+  .res-list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;}
+  .res-list li{font-size:13.5px;color:#DDD6C8;}
+
+
+  /* about */
+  .about-top{padding-top:80px;padding-bottom:80px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:start;}
+  .photo-col{position:sticky;top:100px;}
+  .photo-frame{position:relative;max-width:420px;}
+  .photo{width:100%;aspect-ratio:325/468;object-fit:cover;border-radius:6px;display:block;box-shadow:0 18px 40px rgba(43,33,26,0.18);}
+  .photo-badge{position:absolute;left:-16px;bottom:24px;background:var(--paper);border:1px solid rgba(184,137,75,0.55);border-radius:6px;padding:12px 16px;box-shadow:0 10px 24px rgba(43,33,26,0.16);}
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:6px;}
+  .fact-n{font-family:'Fraunces',serif;font-size:34px;color:var(--wine);line-height:1;}
+  .fact-t{font-size:13.5px;font-weight:600;color:var(--ink);margin-top:8px;line-height:1.4;}
+  .fact-t span{font-weight:400;font-size:12.5px;color:var(--ink-soft);}
+
+  /* expandable project cards */
+  .pgrid{align-items:start;}
+  .pcard{background:var(--paper);border:1px solid var(--line);border-radius:6px;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;}
+  .pcard summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:12px;padding:26px;border-radius:6px;}
+  .pcard summary::-webkit-details-marker{display:none;}
+  .pcard[open]{border-color:rgba(125,80,15,0.45);}
+  .pc-short{font-size:14px;line-height:1.65;color:var(--ink-soft);}
+  .pcard .xp-toggle{margin-top:4px;}
+  .pcard .t-open{display:none;}
+  .pcard[open] .t-open{display:inline;}
+  .pcard[open] .t-closed{display:none;}
+  .pcard[open] .xp-toggle svg{transform:rotate(180deg);}
+  .pcard-body{padding:0 26px 24px;display:flex;flex-direction:column;gap:16px;}
+  .pr{border-top:1px solid var(--line);padding-top:16px;}
+  .pr h4{font-family:'Jost',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:6px;}
+  .pr p{font-size:14px;line-height:1.65;color:var(--ink-soft);}
+  .pcard-body .note{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px;}
+
+  /* shared expand/collapse control: a ring that fills on hover */
+  .xp-toggle svg{width:28px;height:28px;padding:8px;border:1.5px solid var(--wine);border-radius:50%;color:var(--wine);transition:transform .2s ease,background-color .18s ease,color .18s ease;}
+
+  /* ---------- hover & focus: only on things you can click, only on devices with a pointer ---------- */
+  @media (hover:hover) and (pointer:fine){
+    .navlink:hover{color:var(--wine);}
+    .navlink:hover::after{transform:scaleX(1);}
+    .logo:hover{color:var(--wine);}
+    .btn-wine:hover{background:var(--wine-2);box-shadow:0 6px 16px rgba(92,26,24,0.25);}
+    .btn-line-wine:hover{background:var(--wine);color:var(--cream);}
+    .btn-cream:hover{background:#FFFFFF;box-shadow:0 6px 16px rgba(0,0,0,0.22);}
+    .btn-line-cream:hover{background:var(--cream);color:var(--wine);border-color:var(--cream);}
+    .menu summary:hover{background:var(--tint);}
+    .menu-panel a:hover{background:var(--tint);color:var(--wine);}
+    .lcard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(43,33,26,0.28);border-color:rgba(250,243,231,0.3);}
+    .lcard:hover .cta{background:#FFFFFF;}
+    .lcard:hover .cta svg{transform:translateX(4px);}
+    .xp:hover{border-color:rgba(125,80,15,0.6);box-shadow:0 8px 22px rgba(43,33,26,0.1);}
+    .xp:not([open]):hover{background:var(--tint);}
+    .xp summary:hover .xp-toggle svg,.pcard summary:hover .xp-toggle svg{background:var(--wine);color:var(--cream);}
+    .pcard:hover{border-color:rgba(125,80,15,0.6);box-shadow:0 12px 28px rgba(43,33,26,0.14);}
+    .pcard:not([open]):hover{transform:translateY(-3px);}
+    .xp-link:hover{text-decoration-color:var(--wine);}
+  }
+  summary:focus-visible .xp-toggle svg{background:var(--wine);color:var(--cream);}
+  .navlink:focus-visible{color:var(--wine);}
+  .navlink:focus-visible::after{transform:scaleX(1);}
+  .lcard:focus-visible{transform:translateY(-4px);box-shadow:0 16px 36px rgba(43,33,26,0.28);}
+  .lcard:focus-visible .cta{background:#FFFFFF;}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;}
+    .lcard:hover,.lcard:focus-visible,.pcard:hover{transform:none !important;}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .navlinks{display:none;}
+    .menu{display:block;}
+    .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:860px){
+    .hero-grid,.resume-grid,.about-top{grid-template-columns:1fr;gap:40px;}
+    .photo-col{position:static;}
+    .photo-frame{max-width:340px;margin:0 auto;}
+    .photo-badge{left:12px;bottom:12px;}
+    .about-top{padding-top:56px;padding-bottom:56px;}
+    .facts{grid-template-columns:1fr;gap:16px;}
+    .grid-2,.grid-3{grid-template-columns:1fr;}
+    .stats{grid-template-columns:1fr 1fr;}
+    .hero-grid{padding-top:40px;padding-bottom:40px;}
+    .sec-pad{padding-top:56px;padding-bottom:56px;}
+    .xp summary{padding:22px 20px;}
+    .xp-body{padding:0 20px 24px;}
+    .lcard{padding:26px 22px 22px;}
+  }
+  @media (max-width:720px){
+    .wrap{padding-left:20px;padding-right:20px;}
+    .nav-right .btn-sm{display:none;}
+  }
+  @media (max-width:420px){
+    .stats{grid-template-columns:1fr;}
+  }
+</style>
+
+</head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <a href="#" class="logo">VN<span>.</span></a>
-    <div class="nav-wrap">
-      <nav class="nav desktop-nav">
-        <a href="#about">About</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact" class="nav-cta">Let's Talk</a>
-      </nav>
-      <button id="menuToggle" class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
+
+<div style="width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:stretch;background:var(--cream);">
+
+  <a href="#main" class="skip">Skip to main content</a>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a href="#top" class="logo" aria-label="Vaishnavi Narella, back to top">VN<span>.</span></a>
+      <div class="nav-right">
+        <nav class="navlinks" aria-label="Main">
+          <a href="#about" class="navlink">About</a>
+          <a href="#expertise" class="navlink">Expertise</a>
+          <a href="#work" class="navlink">Work</a>
+          <a href="#experience" class="navlink">Experience</a>
+          <a href="#resume" class="navlink">Resume</a>
+        </nav>
+        <a href="#contact" class="btn btn-wine btn-sm">Let's Talk</a>
+        <details class="menu">
+          <summary aria-label="Open menu">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            Menu
+          </summary>
+          <nav class="menu-panel" aria-label="Mobile">
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#work">Work</a>
+            <a href="#experience">Experience</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Let's Talk</a>
+          </nav>
+        </details>
+      </div>
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="menu-overlay" aria-hidden="true">
-    <div class="menu-backdrop"></div>
-    <div class="menu-panel">
-      <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
-      <nav class="mobile-nav-links">
-        <a href="#about">About</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact">Let's Talk</a>
-      </nav>
+  <main id="main">
+
+  <!-- HERO -->
+  <section id="top" style="background:var(--cream);" aria-label="Introduction">
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+        <div class="status-chip"><i></i>Seeking full-time roles · Starting Dec 2026</div>
+        <div class="eyebrow" style="font-size:12.5px;letter-spacing:.18em;">Consulting · Analytics · Operations</div>
+        <h1 style="font-size:clamp(42px,6vw,68px);line-height:1.03;font-weight:500;color:var(--wine);">
+          Vaishnavi<br>Narella
+        </h1>
+        <p style="font-size:17px;line-height:1.65;color:var(--ink);max-width:520px;">
+          I find the gap between where an organization is and where it wants to be, then build the plan that closes it — grounded in data, interviews, and clear recommendations.
+        </p>
+        <p style="font-size:15px;line-height:1.65;color:var(--ink-soft);max-width:520px;">
+          Completing my <strong style="color:var(--ink);font-weight:600;">Master of Global Management at Thunderbird, ASU</strong>
+          (Dec 2026) while working as a Digital Media Intern at the Maricopa Association of Governments.
+          Seeking full-time roles in Consulting &amp; Strategy, Business Analytics, Project &amp; Program Management, or Marketing Operations.
+        </p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;padding-top:6px;">
+          <a href="#work" class="btn btn-wine">View My Work →</a>
+          <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download="" class="btn btn-line-wine">Download Resume</a>
+        </div>
+        <div class="meta">
+          <div>
+            <div class="cap">School</div>
+            <div class="meta-v">Thunderbird, ASU</div>
+          </div>
+          <div>
+            <div class="cap">Based in</div>
+            <div class="meta-v">Phoenix, AZ</div>
+          </div>
+          <div>
+            <div class="cap">Work authorization</div>
+            <div class="meta-v">F-1 · OPT from Dec 20, 2026 · STEM OPT eligible</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="tile">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#7D500F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-5-5"></path></svg></div>
+          <div>
+            <h3>Consulting &amp; Problem Solving</h3>
+            <p>Gap analysis · Research · Recommendations</p>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#7D500F" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="12" width="3.4" height="8"></rect><rect x="10.3" y="7" width="3.4" height="13"></rect><rect x="16.6" y="3" width="3.4" height="17"></rect></svg></div>
+          <div>
+            <h3>Data &amp; Business Analytics</h3>
+            <p>Dashboards · KPIs · Reporting</p>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#7D500F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"></path><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h9"></path></svg></div>
+          <div>
+            <h3>Project &amp; Process Management</h3>
+            <p>Cross-functional · Stakeholders · QA &amp; Delivery</p>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#7D500F" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.4" fill="#7D500F"></circle></svg></div>
+          <div>
+            <h3>Digital Marketing &amp; Ops</h3>
+            <p>Meta · SEO · Multi-channel Execution</p>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#7D500F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3,17 9,11 13,15 21,7"></polyline><polyline points="15,7 21,7 21,13"></polyline></svg></div>
+          <div>
+            <h3>Product Marketing &amp; GTM</h3>
+            <p>Positioning · Competitive Intel · Campaigns</p>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <main>
+  <!-- STATS STRIP -->
+  <section class="on-dark" style="background:var(--wine);" aria-label="Highlights">
+    <div class="wrap stats">
+      <div>
+        <div class="stat-n">12–15%</div>
+        <div class="stat-t">Conversion Rate Lift</div>
+        <div class="stat-s">Marketplace optimization · Sper Scientific</div>
+      </div>
+      <div>
+        <div class="stat-n">$50K</div>
+        <div class="stat-t">Contract Renewed</div>
+        <div class="stat-s">Via competitive repositioning · Tradexa</div>
+      </div>
+      <div>
+        <div class="stat-n">3.4x</div>
+        <div class="stat-t">Engagement Gap Isolated</div>
+        <div class="stat-s">Analysis of 97 posts · MAG</div>
+      </div>
+      <div>
+        <div class="stat-n">100%</div>
+        <div class="stat-t">On-time Delivery</div>
+        <div class="stat-s">2.5 years of concurrent client projects · Tradexa</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
+  <!-- MARATHI QUOTE -->
+  <section class="on-dark" style="background:var(--forest);" aria-label="Quote">
+    <div class="wrap" style="padding-top:48px;padding-bottom:48px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;">
+      <svg width="46" height="30" viewBox="0 0 46 30" fill="none" aria-hidden="true">
+        <path d="M23 28C23 28 23 16 23 9C23 4 19 2 16 4C13 6 15 10 19 9" stroke="#D9B36E" stroke-width="1.3" stroke-linecap="round"></path>
+        <path d="M23 9C23 4 27 2 30 4C33 6 31 10 27 9" stroke="#D9B36E" stroke-width="1.3" stroke-linecap="round"></path>
+        <circle cx="23" cy="6" r="3" fill="#D9B36E"></circle>
+        <path d="M1 27C7 24 17 24 23 27C29 24 39 24 45 27" stroke="#D9B36E" stroke-width="1.3" stroke-linecap="round"></path>
+      </svg>
+      <p class="mr" lang="mr" style="font-size:clamp(20px,3vw,28px);font-weight:600;color:var(--cream);max-width:720px;line-height:1.5;">ज्ञान मिळवा आणि अज्ञानाच्या अंधारावर विजय मिळवा</p>
+      <p style="font-size:13.5px;font-style:italic;color:#DDD6C8;">"Acquire knowledge, and triumph over the dark of not knowing."</p>
+      <p class="cap">— Savitribai Phule, pioneering Marathi educator</p>
+    </div>
+  </section>
 
-        <!-- Left: Content -->
-        <div class="hero-content reveal">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            AVAILABLE NOW FOR INTERNSHIPS · FULL-TIME FROM DEC 2026
+  <!-- ABOUT -->
+  <section id="about" style="background:var(--cream);" aria-labelledby="about-h">
+    <div class="wrap about-top">
+      <div class="photo-col">
+        <div class="photo-frame">
+          <img class="photo" src="assets/vaishnavi.jpg" alt="Portrait of Vaishnavi Narella in a blazer, smiling">
+          <div class="photo-badge">
+            <div class="cap">Based in</div>
+            <div style="font-size:14px;font-weight:600;color:var(--ink);margin-top:2px;">Phoenix, AZ</div>
+            <div style="font-size:12.5px;color:var(--ink-soft);margin-top:1px;">Thunderbird, ASU · Dec 2026</div>
           </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="eyebrow" style="color:var(--wine);">About Me</div>
+        <h2 id="about-h" style="font-size:clamp(26px,3.4vw,38px);line-height:1.25;color:var(--ink);">I find the gap, check the data behind it, and build the plan that closes it.</h2>
+        <p style="font-size:16px;line-height:1.75;color:var(--ink-soft);">
+          I'm finishing my Master of Global Management at Thunderbird in December 2026, and I do my best work when
+          I'm handed a messy problem. Whether it's a client engagement, a reporting process, or a screen people
+          struggle to use, I work out where the gap really is, then turn it into something a team can act on.
+        </p>
+        <p style="font-size:16px;line-height:1.75;color:var(--ink-soft);">
+          I've worked across e-commerce, B2B tech, government, and consulting in India, Spain, and the United States, from coordinating a 27-person project team to supporting communications and QA at a regional government agency in Phoenix. Each context taught me the same
+          thing: clear structure and honest numbers make hard decisions easier.
+        </p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;padding-top:6px;">
+          <a href="#contact" class="btn btn-wine">Get in Touch</a>
+          <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download="" class="btn btn-line-wine">Download Resume</a>
+        </div>
+      </div>
+    </div>
 
-          <span class="hero-label">Marketing · Analytics · Product · Operations</span>
+  </section>
 
-          <h1 class="hero-title">
-            Vaishnavi<br>
-            <span class="accent">Narella</span>
-          </h1>
+  <!-- EXPERTISE -->
+  <section id="expertise" class="on-dark" style="background:var(--forest);" aria-labelledby="exp-h">
+    <div class="wrap sec-pad">
+      <div class="sec-head">
+        <div class="eyebrow">What I Bring</div>
+        <h2 id="exp-h" style="color:var(--cream);">Five tracks. One common thread: outcomes.</h2>
+        <p style="color:#DDD6C8;">My experience spans analytics, operations, and marketing. Here's how I add value across each.</p>
+      </div>
 
-          <p class="hero-tagline">
-            I connect strategy to execution, turning data into decisions, campaigns into outcomes, and ambiguous problems into measurable results.
-          </p>
+      <div class="grid-2">
 
-          <p class="hero-sub">
-            Currently completing my <strong>Master of Global Management at Thunderbird, ASU</strong> (Dec 2026). Seeking roles in Product Marketing, Marketing Operations, Data Analytics, or Project Management.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#work" class="btn btn-primary">View My Work →</a>
-            <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download class="btn btn-secondary">Download Resume</a>
-          </div>
-
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span class="hero-meta-label">School</span>
-              <span class="hero-meta-value">Thunderbird, ASU</span>
-            </div>
-            <div class="hero-meta-item">
-              <span class="hero-meta-label">Based in</span>
-              <span class="hero-meta-value">Phoenix, AZ</span>
-            </div>
-            <div class="hero-meta-item">
-              <span class="hero-meta-label">Work Auth</span>
-              <span class="hero-meta-value">F-1 STEM OPT · No sponsorship needed</span>
-            </div>
+        <div class="xcard" style="grid-column:1 / -1;">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#D9B36E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-5-5"></path></svg></div>
+          <h3>Consulting &amp; Strategy</h3>
+          <p>I like diagnosing what's actually going wrong and turning it into something a client can act on. On client engagements at Thunderbird I interview stakeholders, map processes, audit communications, and survey members to find the gaps, then deliver prioritized recommendations and a framework the client can run with. The same habit shows up in my MAG work, where I validate the data first and then recommend.</p>
+          <div class="chips">
+            <span class="chip chip-dark">Gap Analysis</span>
+            <span class="chip chip-dark">Stakeholder Interviews</span>
+            <span class="chip chip-dark">Survey Research</span>
+            <span class="chip chip-dark">Process Mapping</span>
+            <span class="chip chip-dark">Recommendations &amp; Frameworks</span>
           </div>
         </div>
 
-        <!-- Right: Role Tiles · all orange gradient, uniform design -->
-        <div class="hero-tiles reveal">
-          <div class="hero-tile">
-            <div class="hero-tile-icon">📈</div>
-            <div>
-              <div class="hero-tile-text">Product Marketing &amp; GTM</div>
-              <div style="font-size:0.78rem;opacity:0.75;margin-top:3px;">Positioning · Competitive Intel · Campaigns</div>
-            </div>
+        <div class="xcard">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#D9B36E" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="12" width="3.4" height="8"></rect><rect x="10.3" y="7" width="3.4" height="13"></rect><rect x="16.6" y="3" width="3.4" height="17"></rect></svg></div>
+          <h3>Data Analytics &amp; Reporting</h3>
+          <p>I turn raw exports into decisions. At MAG I built an AI-assisted dashboard that reads email, website, and survey data and replaced a full-day manual monthly report for 120 employees, and I analyzed 97 posts to isolate a 3.4x engagement-rate gap. Actively developing SQL, Power BI, Tableau, and Google Analytics skills.</p>
+          <div class="chips">
+            <span class="chip chip-dark">KPI Development</span>
+            <span class="chip chip-dark">Dashboards</span>
+            <span class="chip chip-dark">Excel &amp; Sheets</span>
+            <span class="chip chip-dark">Data Validation</span>
+            <span class="chip chip-dark-gold">SQL (in progress)</span>
           </div>
-          <div class="hero-tile">
-            <div class="hero-tile-icon">📊</div>
-            <div>
-              <div class="hero-tile-text">Data &amp; Business Analytics</div>
-              <div style="font-size:0.78rem;opacity:0.75;margin-top:3px;">KPIs · Reporting · Trend Analysis</div>
-            </div>
+        </div>
+
+        <div class="xcard">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#D9B36E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"></path><path d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h9"></path></svg></div>
+          <h3>Project &amp; Process Management</h3>
+          <p>I coordinate across teams to keep work on track, managing timelines, stakeholder communication, and delivery risk in parallel, with 100% on-time delivery across 2.5 years of concurrent client projects. At MAG I also support QA and testing for an internal program management system.</p>
+          <div class="chips">
+            <span class="chip chip-dark">Cross-functional Coordination</span>
+            <span class="chip chip-dark">QA &amp; UAT</span>
+            <span class="chip chip-dark">Stakeholder Management</span>
+            <span class="chip chip-dark">Monday.com &amp; Asana</span>
+            <span class="chip chip-dark">Agile / Scrum</span>
           </div>
-          <div class="hero-tile">
-            <div class="hero-tile-icon">🎯</div>
-            <div>
-              <div class="hero-tile-text">Digital Marketing &amp; Ops</div>
-              <div style="font-size:0.78rem;opacity:0.75;margin-top:3px;">Meta · SEO · Multi-channel Execution</div>
-            </div>
+        </div>
+
+        <div class="xcard">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#D9B36E" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.4" fill="#D9B36E"></circle></svg></div>
+          <h3>Digital Marketing &amp; Campaign Ops</h3>
+          <p>I plan and execute multi-channel marketing across Meta, eBay, Walmart, and email, from brief to reporting. I build content calendars, track performance daily in Sprout Social, and iterate on what the data shows. Secured a $50K contract renewal via competitive repositioning.</p>
+          <div class="chips">
+            <span class="chip chip-dark">Meta Business Suite</span>
+            <span class="chip chip-dark">Sprout Social</span>
+            <span class="chip chip-dark">SEO &amp; Keywords</span>
+            <span class="chip chip-dark">Content Calendars</span>
+            <span class="chip chip-dark">E-commerce Channels</span>
           </div>
-          <div class="hero-tile">
-            <div class="hero-tile-icon">⚙️</div>
-            <div>
-              <div class="hero-tile-text">Project &amp; Process Management</div>
-              <div style="font-size:0.78rem;opacity:0.75;margin-top:3px;">Cross-functional · Stakeholders · Delivery</div>
-            </div>
+        </div>
+
+        <div class="xcard">
+          <div class="tile-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#D9B36E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3,17 9,11 13,15 21,7"></polyline><polyline points="15,7 21,7 21,13"></polyline></svg></div>
+          <h3>Product Marketing &amp; GTM</h3>
+          <p>I translate product features into clear market narratives, run go-to-market campaigns, and use competitive intelligence to sharpen positioning. I drove a 12–15% conversion lift and 20% impression growth through targeted messaging and listing optimization.</p>
+          <div class="chips">
+            <span class="chip chip-dark">Go-to-Market Strategy</span>
+            <span class="chip chip-dark">Product Positioning</span>
+            <span class="chip chip-dark">Competitive Intel</span>
+            <span class="chip chip-dark">Customer Segmentation</span>
           </div>
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- STATS STRIP -->
-    <section class="stats-strip">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <span class="stat-number">12–15%</span>
-          <span class="stat-label">Conversion Rate Lift</span>
-          <span class="stat-sub">Go-to-market campaigns · Sper Scientific</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number">$50K</span>
-          <span class="stat-label">Contract Renewed</span>
-          <span class="stat-sub">Via competitive repositioning · Tradexa</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number">25%</span>
-          <span class="stat-label">Productivity Gained</span>
-          <span class="stat-sub">Process redesign &amp; workflow improvements</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">On-time Delivery</span>
-          <span class="stat-sub">2.5 years of concurrent client engagements</span>
-        </div>
+  <!-- SELECTED WORK -->
+  <section id="work" style="background:var(--cream);" aria-labelledby="work-h">
+    <div class="wrap sec-pad">
+      <div class="sec-head">
+        <div class="eyebrow" style="color:var(--wine);">Selected Work</div>
+        <h2 id="work-h" style="color:var(--ink);">Projects that show the range.</h2>
+        <p style="color:var(--ink-soft);">Consulting and professional work first, then products and case studies you can open.</p>
       </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section container">
-      <div class="about-grid reveal">
+      <h3 class="group-title">Professional &amp; client work</h3>
+      <div class="grid-3 pgrid" style="margin-bottom:56px;">
 
-        <!-- Image side -->
-        <div>
-          <div class="about-img-wrap">
-            <img src="assets/headshot.jpg"
-              alt="Vaishnavi Narella · Marketing &amp; Analytics Professional"
-              class="about-img">
+        <details class="pcard">
+          <summary>
+            <span class="cap">Internal tool · MAG</span>
+            <h3>MAG Engagement Dashboard</h3>
+            <span class="pc-short">An AI-assisted dashboard that replaced a full-day manual monthly report for 120 employees.</span>
+            <span class="chips" style="display:flex;"><span class="chip">Dashboards</span><span class="chip">Data Validation</span><span class="chip">AI-assisted build</span></span>
+            <span class="xp-toggle"><span class="t-closed">See the gap &amp; approach</span><span class="t-open">Hide</span><svg width="28" height="28" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"></path></svg></span>
+          </summary>
+          <div class="pcard-body">
+            <div class="pr"><h4>The gap</h4><p>Internal communications engagement was reported by hand each month, pulling from separate GovDelivery, Clarity, and all-staff survey exports. It took a full day.</p></div>
+            <div class="pr"><h4>What I did</h4><p>Built an AI-assisted dashboard that reads the raw exports (plus Sprout Social for social media) and tracks engagement in one place. Ran validation passes against the source numbers.</p></div>
+            <div class="pr"><h4>Outcome</h4><p>The full-day report is gone for 120 employees, and the validation passes caught a GovDelivery open-rate tracking bug.</p></div>
+            <div class="note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 018 0v4"></path></svg>Internal to MAG. Walkthrough on request.</div>
           </div>
-        </div>
-
-        <!-- Text side -->
-        <div class="about-text">
-          <span class="about-label">ABOUT ME</span>
-          <h2>A generalist who delivers across data, marketing, and operations.</h2>
-          <p>I'm a marketing and analytics professional who sits comfortably at the intersection of strategy and execution. Whether I'm running a GTM campaign, building a KPI dashboard, coordinating a multi-team project, or analyzing marketplace data. I bring the same thing: structured thinking and clear outcomes.</p>
-          <p style="margin-top:0.75rem;">I've worked across e-commerce, B2B tech, and consulting environments, adapting quickly to new contexts while staying focused on delivering measurable results for stakeholders at all levels.</p>
-
-          <ul class="strength-list">
-            <li><strong>Data-informed decisions:</strong> I analyze before I act, using competitive research, KPI tracking, and market data to inform strategy.</li>
-            <li><strong>Cross-functional execution:</strong> I coordinate across marketing, product, and ops teams to keep things moving and on time.</li>
-            <li><strong>Adaptable positioning:</strong> I've tailored work across product marketing, analytics, and project ops, and I thrive in roles where those overlap.</li>
-            <li><strong>AI-native mindset:</strong> I build with and leverage GenAI tools (Claude, ChatGPT, OpenAI APIs) to accelerate reporting, content, and workflows.</li>
-          </ul>
-
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:0.5rem;">
-            <a href="#contact" class="btn btn-primary" style="padding:12px 24px;font-size:0.88rem;">Get in Touch</a>
-            <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download class="btn btn-secondary" style="padding:12px 24px;font-size:0.88rem;">Download Resume</a>
+        </details>
+        <details class="pcard">
+          <summary>
+            <span class="cap">Client project · In progress</span>
+            <h3>World Ocean Council Consulting Project</h3>
+            <span class="pc-short">A Thunderbird Global Challenge Lab team engagement to strengthen the World Ocean Council's membership engagement.</span>
+            <span class="chips" style="display:flex;"><span class="chip">Consulting</span><span class="chip">Survey Research</span><span class="chip">Communication Audit</span></span>
+            <span class="xp-toggle"><span class="t-closed">See the gap &amp; approach</span><span class="t-open">Hide</span><svg width="28" height="28" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"></path></svg></span>
+          </summary>
+          <div class="pcard-body">
+            <div class="pr"><h4>The gap</h4><p>The World Ocean Council wanted to strengthen how it engages its members and alumni.</p></div>
+            <div class="pr"><h4>What I did</h4><p>A team project built around a member survey and a member insights report, a communication audit with an email template system, a member and alumni convening plan, and a membership strategy.</p></div>
+            <div class="pr"><h4>Outcome</h4><p>In progress, with final deliverables due December 2026.</p></div>
+            <div class="note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 018 0v4"></path></svg>Client data is not shown on this site.</div>
           </div>
-        </div>
+        </details>
+        <details class="pcard">
+          <summary>
+            <span class="cap">Product design · MAG</span>
+            <h3>Facility Improvements Redesign</h3>
+            <span class="pc-short">A redesign of a dense data-entry screen where users set Before and After values for seven facility types.</span>
+            <span class="chips" style="display:flex;"><span class="chip">UX Design</span><span class="chip">Design System</span><span class="chip">Accessible UI</span></span>
+            <span class="xp-toggle"><span class="t-closed">See the gap &amp; approach</span><span class="t-open">Hide</span><svg width="28" height="28" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"></path></svg></span>
+          </summary>
+          <div class="pcard-body">
+            <div class="pr"><h4>The gap</h4><p>A data-entry section where users set Before and After values for seven facility types, with a lot to scan and enter.</p></div>
+            <div class="pr"><h4>What I did</h4><p>Kept every facility visible at once, matched each control to its data type, and added a calculated Result column built on a shared design system.</p></div>
+            <div class="pr"><h4>Outcome</h4><p>Users see what changed at a glance, including negative values, shown with a word and a symbol and not colour alone.</p></div>
+            <div class="note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 018 0v4"></path></svg>Internal to MAG. Walkthrough on request.</div>
+          </div>
+        </details>
 
       </div>
-    </section>
 
-    <!-- EXPERTISE -->
-    <section id="expertise" class="section section-bg">
-      <div class="container">
-        <div class="section-header-center reveal">
-          <span class="section-kicker">WHAT I BRING</span>
-          <h2>Four tracks. One common thread: outcomes.</h2>
-          <p>My experience spans marketing, analytics, and operations. Here's how I add value across each.</p>
-        </div>
+      <h3 class="group-title">Products &amp; case studies</h3>
+      <div class="grid-2">
 
-        <div class="expertise-grid reveal">
-
-          <div class="expertise-card">
-            <div class="expertise-card-icon">📈</div>
-            <div>
-              <h3>Product Marketing &amp; GTM</h3>
-              <p>I translate product features into compelling market narratives, execute go-to-market campaigns, and use competitive intelligence to sharpen positioning. I've driven a 12–15% conversion lift and 20% impression growth through targeted messaging and strategic product placement.</p>
-            </div>
-            <div class="expertise-tags">
-              <span class="chip">Go-to-Market Strategy</span>
-              <span class="chip">Product Positioning</span>
-              <span class="chip">Competitive Intel</span>
-              <span class="chip">Pricing Strategy</span>
-              <span class="chip">Customer Segmentation</span>
-            </div>
+        <a href="/creativeloop" target="_blank" rel="noopener noreferrer" class="lcard lcard-wine">
+          <div class="cap" style="display:flex;align-items:center;gap:8px;"><span class="live-dot"></span>Live product I built · Featured</div>
+          <h3>CreativeLoop</h3>
+          <p>Designed and built a full-stack AI SaaS platform that auto-generates a full week of branded social media content: AI images, captions, hashtags, and video scripts, delivered every Monday. Built with Next.js, OpenAI GPT-4, DALL·E 3, and Supabase.</p>
+          <div class="chips">
+            <span class="chip chip-dark">AI Product</span>
+            <span class="chip chip-dark">Full-Stack</span>
+            <span class="chip chip-dark">GTM Strategy</span>
           </div>
-
-          <div class="expertise-card teal-top">
-            <div class="expertise-card-icon">📊</div>
-            <div>
-              <h3>Data Analytics &amp; Reporting</h3>
-              <p>I gather, interpret, and present business data to support informed decisions, from building KPI dashboards in Excel to synthesizing competitive research into actionable reports. Actively developing SQL, Power BI, Tableau, and Google Analytics skills.</p>
-            </div>
-            <div class="expertise-tags">
-              <span class="chip">KPI Development</span>
-              <span class="chip">Excel &amp; Sheets</span>
-              <span class="chip">SQL (in progress)</span>
-              <span class="chip">Power BI / Tableau</span>
-              <span class="chip">Requirements Gathering</span>
-            </div>
-          </div>
-
-          <div class="expertise-card">
-            <div class="expertise-card-icon">🎯</div>
-            <div>
-              <h3>Digital Marketing &amp; Campaign Ops</h3>
-              <p>I plan and execute multi-channel marketing campaigns across Meta, eBay, Walmart, and email, from brief to reporting. I align messaging with audience segments, track engagement metrics, and iterate based on performance data. Secured a $50K contract renewal via competitive repositioning.</p>
-            </div>
-            <div class="expertise-tags">
-              <span class="chip">Meta Business Suite</span>
-              <span class="chip">SEO &amp; Keywords</span>
-              <span class="chip">Campaign Execution</span>
-              <span class="chip">Audience Segmentation</span>
-              <span class="chip">E-commerce Channels</span>
-            </div>
-          </div>
-
-          <div class="expertise-card teal-top">
-            <div class="expertise-card-icon">⚙️</div>
-            <div>
-              <h3>Project &amp; Process Management</h3>
-              <p>I coordinate across teams to keep initiatives on track, managing timelines, stakeholder communication, and delivery risks in parallel. I built repeatable workflows that increased team productivity by 25% and maintained 100% on-time delivery across 2.5 years of concurrent client engagements.</p>
-            </div>
-            <div class="expertise-tags">
-              <span class="chip">Cross-functional Coordination</span>
-              <span class="chip">Monday.com &amp; Asana</span>
-              <span class="chip">Stakeholder Management</span>
-              <span class="chip">Workflow Design</span>
-              <span class="chip">Agile / Scrum</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SELECTED WORK -->
-    <section id="work" class="work-section">
-      <div class="work-container">
-        <div class="section-header-center reveal">
-          <span class="section-kicker teal">SELECTED WORK</span>
-          <h2>Projects that show the range.</h2>
-          <p>From AI product development to consulting strategy and product design. Here's the work.</p>
-        </div>
-
-        <!-- Featured: CreativeLoop · orange gradient -->
-        <a class="sw-product-card reveal" href="/creativeloop" target="_blank" rel="noopener noreferrer">
-          <div class="sw-product-emoji">🔁</div>
-          <div>
-            <div class="sw-kicker">
-              <span class="sw-live-dot"></span> LIVE PRODUCT I BUILT · FEATURED
-            </div>
-            <div class="sw-title">CreativeLoop</div>
-            <p class="sw-desc">Designed and built a full-stack AI SaaS platform that auto-generates a full week of branded social media content: AI images, captions, hashtags, and video scripts, delivered every Monday. Built with Next.js, OpenAI GPT-4, DALL·E 3, and Supabase.</p>
-            <div class="sw-tags">
-              <span class="tag">AI Product</span>
-              <span class="tag">Full-Stack</span>
-              <span class="tag">GTM Strategy</span>
-              <span class="tag">Next.js · OpenAI · Supabase</span>
-            </div>
-          </div>
-          <div style="flex-shrink:0;display:flex;align-items:center;">
-            <span class="btn btn-white" style="white-space:nowrap;">Launch App ↗</span>
-          </div>
+          <span class="cta">Launch App <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></span>
         </a>
 
-        <!-- Thunderbird Consulting · teal gradient -->
-        <a class="sw-card-teal reveal" href="project-thunderbird-consulting.html">
-          <div>
-            <div class="sw-kicker">CONSULTING CASE STUDY · THUNDERBIRD, ASU</div>
-            <div class="sw-title">Thunderbird Consulting Project</div>
-            <p class="sw-desc">Led a structured gap analysis for a real client organization, interviewing stakeholders, mapping process flows, and delivering a scalable operating framework adopted by the client. Recognized for strategic clarity and actionable recommendations.</p>
-            <div class="sw-tags">
-              <span class="tag">Strategy</span>
-              <span class="tag">Process Design</span>
-              <span class="tag">Stakeholder Management</span>
-              <span class="tag">Gap Analysis</span>
-            </div>
+        <a href="project-thunderbird-consulting.html" class="lcard lcard-forest">
+          <div class="cap">Consulting case study · Thunderbird, ASU</div>
+          <h3>Thunderbird Consulting Project</h3>
+          <p>Led a structured gap analysis for a real client organization, interviewing stakeholders, mapping process flows, and delivering a scalable operating framework adopted by the client. Recognized for strategic clarity and actionable recommendations.</p>
+          <div class="chips">
+            <span class="chip chip-dark">Strategy</span>
+            <span class="chip chip-dark">Process Design</span>
+            <span class="chip chip-dark">Gap Analysis</span>
           </div>
-          <div style="flex-shrink:0;display:flex;align-items:center;">
-            <span class="btn btn-white" style="white-space:nowrap;">View Case Study →</span>
-          </div>
+          <span class="cta">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span>
         </a>
 
-        <!-- Bloom · dark floral -->
-        <a class="sw-card-teal reveal" href="bloom-subscription/" target="_blank" rel="noopener noreferrer"
-           style="background:linear-gradient(135deg,#1C1028 0%,#3D1A50 100%);">
-          <!-- decorative petals background -->
-          <span aria-hidden="true" style="position:absolute;right:2rem;top:50%;transform:translateY(-50%);font-size:8rem;opacity:0.07;line-height:1;pointer-events:none;user-select:none;">🌸</span>
-          <div>
-            <div class="sw-kicker" style="color:rgba(255,217,61,.9);">PRODUCT DESIGN · SUBSCRIPTION · SIDE PROJECT</div>
-            <div class="sw-title">Bloom. — Flower Subscription</div>
-            <p class="sw-desc">Designed and built a full flower subscription website with a custom bouquet builder. Customers can hand-pick their flowers and stem counts, or subscribe to a weekly florist surprise. Includes a 3-step wizard, live pricing, and a connected marketing landing page.</p>
-            <div class="sw-tags">
-              <span class="tag">Product Design</span>
-              <span class="tag">HTML · CSS · JS</span>
-              <span class="tag">UX / Wizard Flow</span>
-              <span class="tag">Subscription Model</span>
-            </div>
+        <a href="bloom-subscription/" target="_blank" rel="noopener noreferrer" class="lcard lcard-bloom">
+          <div class="cap" style="color:#F0B8D6;">Product design · Subscription · Side project</div>
+          <h3>Bloom. Flower Subscription</h3>
+          <p>Designed and built a flower subscription website with a custom bouquet builder. Customers hand-pick flowers and stem counts, or subscribe to a weekly florist surprise. Includes a 3-step wizard, live pricing, and a connected marketing landing page.</p>
+          <div class="chips">
+            <span class="chip chip-dark">Product Design</span>
+            <span class="chip chip-dark">HTML · CSS · JS</span>
+            <span class="chip chip-dark">UX / Wizard Flow</span>
           </div>
-          <div style="flex-shrink:0;display:flex;align-items:center;">
-            <span class="btn btn-white" style="white-space:nowrap;">View Project ↗</span>
-          </div>
+          <span class="cta">View Project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></span>
         </a>
 
-        <!-- BrandPulse AI · warm terracotta -->
-        <a class="sw-card-teal reveal" href="/brandpulse" target="_blank" rel="noopener noreferrer"
-           style="background:linear-gradient(135deg,#7A3D14 0%,#B64E17 55%,#D9772F 100%);">
-          <div>
-            <div class="sw-kicker">
-              <span class="sw-live-dot"></span> INTERACTIVE DEMO · SIDE PROJECT
-            </div>
-            <div class="sw-title">BrandPulse AI</div>
-            <p class="sw-desc">Built an interactive brand sentiment tool: type any brand name and get an instant snapshot — key KPIs, a 12-month sentiment trend, key themes, notable events, and sample mentions, generated from a seeded sample-data model.</p>
-            <div class="sw-tags">
-              <span class="tag">Product Design</span>
-              <span class="tag">HTML · CSS · JS</span>
-              <span class="tag">Data Visualization</span>
-              <span class="tag">Sentiment Analysis</span>
-            </div>
+        <a href="/brandpulse" target="_blank" rel="noopener noreferrer" class="lcard lcard-amber">
+          <div class="cap" style="color:#FFE6CC;display:flex;align-items:center;gap:8px;"><span class="live-dot" style="background:#FFD966;"></span>Interactive demo · Side project</div>
+          <h3>BrandPulse AI</h3>
+          <p>An interactive brand sentiment tool: type any brand name and get an instant snapshot with key KPIs, a 12-month sentiment trend, key themes, notable events, and sample mentions, generated from a seeded sample-data model.</p>
+          <div class="chips">
+            <span class="chip chip-dark">Data Visualization</span>
+            <span class="chip chip-dark">Sentiment Analysis</span>
+            <span class="chip chip-dark">HTML · CSS · JS</span>
           </div>
-          <div style="flex-shrink:0;display:flex;align-items:center;">
-            <span class="btn btn-white" style="white-space:nowrap;">Try It ↗</span>
-          </div>
+          <span class="cta">Try It <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"></path><path d="M8 7h9v9"></path></svg></span>
         </a>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section container">
-      <div class="section-header reveal">
-        <span class="section-kicker">EXPERIENCE</span>
-        <h2 class="section-title" style="margin-top:0.5rem;">Where I've worked.</h2>
-      </div>
-      <div class="timeline reveal">
+  <!-- EXPERIENCE -->
+  <section id="experience" style="background:var(--cream);border-top:1px solid var(--line);" aria-labelledby="xp-h">
+    <div class="wrap sec-pad">
+      <div class="eyebrow" style="color:var(--wine);">Experience</div>
+      <h2 id="xp-h" style="font-size:clamp(28px,3.8vw,40px);margin-top:14px;margin-bottom:12px;color:var(--ink);">Where I've worked.</h2>
+      <p style="font-size:15px;color:var(--ink-soft);margin-bottom:36px;">Select a role to see what I did there.</p>
 
-        <article class="timeline-card timeline-card--link">
-          <a href="experience-sper-scientific.html" style="text-decoration:none;color:inherit;display:block;">
-            <div class="timeline-header">
-              <div>
-                <div class="role">Marketing &amp; E-commerce Intern</div>
-                <div class="company">Sper Scientific</div>
-              </div>
-              <span class="timeline-date">Jul 2025 – Aug 2025</span>
-            </div>
-            <p>Owned high-volume product content and marketplace execution, improving discoverability and conversion through standardized listings, pricing coordination, and performance-driven optimizations across eBay and Walmart.</p>
-            <div class="outcome-chips" style="margin-top:0.75rem;">
-              <span class="chip">12–15% CVR lift</span>
-              <span class="chip teal">150+ listings optimized</span>
-            </div>
-            <div class="timeline-view-link">View details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6h7M6.5 3l3 3-3 3"/></svg></div>
-          </a>
-        </article>
+      <div style="display:flex;flex-direction:column;gap:18px;">
 
-        <article class="timeline-card timeline-card--link">
-          <a href="experience-tradexa-project-coordinator.html" style="text-decoration:none;color:inherit;display:block;">
-            <div class="timeline-header">
-              <div>
-                <div class="role">Project Coordinator</div>
-                <div class="company">Tradexa Technology</div>
-              </div>
-              <span class="timeline-date">Jun 2022 – Dec 2024</span>
-            </div>
-            <p>Led cross-functional delivery across product, operations, and stakeholders, maintaining 100% on-time execution by introducing structured workflows and securing a $50K contract renewal through competitive repositioning.</p>
-            <div class="outcome-chips" style="margin-top:0.75rem;">
+        <details class="xp" open>
+          <summary>
+            <span class="xp-head">
+              <span><h3 class="xp-role">Digital Media Intern</h3><span class="xp-co">Maricopa Association of Governments · Phoenix, AZ</span></span>
+              <span class="cap">May 2026 – Present</span>
+            </span>
+            <span class="xp-lead">Building the dashboards, reports, and content plans behind MAG's internal and public communications, and supporting QA and testing across departments.</span>
+            <span class="chips" style="display:flex;">
+              <span class="chip chip-gold">AI-assisted dashboard · 120 employees</span>
+              <span class="chip">3.4x engagement gap isolated</span>
+              <span class="chip">QA &amp; testing</span>
+            </span>
+            <span class="xp-toggle"><span class="t-closed">Show details</span><span class="t-open">Hide details</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"></path></svg>
+            </span>
+          </summary>
+          <div class="xp-body">
+            <ul>
+              <li><strong>Reporting automation.</strong> Replaced a manual monthly report that took a full day with an AI-assisted dashboard combining GovDelivery email, Clarity website, and all-staff survey data for 120 employees.</li>
+              <li><strong>Analysis.</strong> Analyzed 97 posts across 7 outreach efforts (223,943 impressions, 10,733 engagements) to isolate a 3.4x engagement-rate gap and presented data-backed recommendations to the Communications team.</li>
+              <li><strong>Data quality.</strong> Diagnosed and validated a GovDelivery data anomaly and built a Critical Mention media-monitoring dashboard that flags one-time coverage spikes.</li>
+              <li><strong>Content operations.</strong> Build monthly content calendars from prior-month performance data and track results daily in Sprout Social.</li>
+              <li><strong>QA &amp; testing (cross-department).</strong> Wrote the QA plan for a program management system's landing page and header search: test plan, test cases, UAT script, accessibility checklist, and a living bug log.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="xp">
+          <summary>
+            <span class="xp-head">
+              <span><h3 class="xp-role">Marketing &amp; E-commerce Intern</h3><span class="xp-co">Sper Scientific · Scottsdale, AZ</span></span>
+              <span class="cap">Jul 2025 – Aug 2025</span>
+            </span>
+            <span class="xp-lead">Owned high-volume product content and marketplace execution, improving discoverability and conversion through standardized listings and performance-driven optimization across eBay and Walmart.</span>
+            <span class="chips" style="display:flex;">
+              <span class="chip">12–15% conversion lift</span>
+              <span class="chip chip-gold">150+ listings optimized</span>
+            </span>
+            <span class="xp-toggle"><span class="t-closed">Show details</span><span class="t-open">Hide details</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"></path></svg>
+            </span>
+          </summary>
+          <div class="xp-body">
+            <ul>
+              <li>Analyzed digital performance data across 150+ product listings on eBay and Walmart Marketplace to find engagement trends, content gaps, and optimization opportunities.</li>
+              <li>Applied SEO and keyword research, metadata optimization, and content-structure analysis, improving conversion rates 12–15% and monthly product impressions 20%.</li>
+              <li>Compiled competitive research and performance data into structured reports and visualizations for stakeholders.</li>
+              <li>Organized and maintained digital content libraries across e-commerce platforms, keeping product data accurate and consistent.</li>
+            </ul>
+            <a href="experience-sper-scientific.html" target="_blank" rel="noopener noreferrer" class="xp-link">Read the full case page
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6h7M6.5 3l3 3-3 3"></path></svg>
+            </a>
+          </div>
+        </details>
+
+        <details class="xp">
+          <summary>
+            <span class="xp-head">
+              <span><h3 class="xp-role">Project Coordinator</h3><span class="xp-co">Tradexa Technology · India</span></span>
+              <span class="cap">Jun 2022 – Dec 2024</span>
+            </span>
+            <span class="xp-lead">Led cross-functional delivery across product, operations, and stakeholders, maintaining 100% on-time execution with structured workflows and securing a $50K contract renewal through competitive repositioning.</span>
+            <span class="chips" style="display:flex;">
               <span class="chip">$50K contract renewed</span>
-              <span class="chip teal">100% on-time · 2.5 yrs</span>
-            </div>
-            <div class="timeline-view-link">View details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6h7M6.5 3l3 3-3 3"/></svg></div>
-          </a>
-        </article>
+              <span class="chip chip-gold">100% on-time · 2.5 yrs</span>
+            </span>
+            <span class="xp-toggle"><span class="t-closed">Show details</span><span class="t-open">Hide details</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"></path></svg>
+            </span>
+          </summary>
+          <div class="xp-body">
+            <ul>
+              <li>Coordinated 10+ concurrent projects and led a team of 27 across 32 client websites for brands including Saucony, Hyperice, Garmin, 2XU, Nikon, and Godox.</li>
+              <li>Managed schedules and deliverables to achieve 100% on-time delivery and cut turnaround time by 30%.</li>
+              <li>Tested new software features before release, tracked issues to resolution, and reported project status to clients and leadership.</li>
+              <li>Monitored engagement across Meta Business Suite (Instagram, Facebook, WhatsApp) and built performance dashboards and reports for leadership.</li>
+            </ul>
+            <a href="experience-tradexa-project-coordinator.html" target="_blank" rel="noopener noreferrer" class="xp-link">Read the full case page
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6h7M6.5 3l3 3-3 3"></path></svg>
+            </a>
+          </div>
+        </details>
 
-        <article class="timeline-card timeline-card--link">
-          <a href="experience-tradexa-hr-intern.html" style="text-decoration:none;color:inherit;display:block;">
-            <div class="timeline-header">
-              <div>
-                <div class="role">Human Resources Intern</div>
-                <div class="company">Tradexa Technology</div>
-              </div>
-              <span class="timeline-date">Dec 2021 – Jun 2022</span>
-            </div>
-            <p>Supported hiring and onboarding operations by improving documentation, coordination, and employee readiness during periods of team growth.</p>
-            <div class="timeline-view-link">View details <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6h7M6.5 3l3 3-3 3"/></svg></div>
-          </a>
-        </article>
+        <details class="xp">
+          <summary>
+            <span class="xp-head">
+              <span><h3 class="xp-role">Human Resources Intern</h3><span class="xp-co">Tradexa Technology · Pune, India</span></span>
+              <span class="cap">Dec 2021 – Jun 2022</span>
+            </span>
+            <span class="xp-lead">Supported hiring and onboarding operations by improving documentation, coordination, and reporting during a period of team growth.</span>
+            <span class="xp-toggle"><span class="t-closed">Show details</span><span class="t-open">Hide details</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"></path></svg>
+            </span>
+          </summary>
+          <div class="xp-body">
+            <ul>
+              <li>Maintained recruitment data and content libraries using Workday and Monday.com.</li>
+              <li>Prepared structured pipeline and hiring reports for leadership that supported staffing decisions.</li>
+            </ul>
+            <a href="experience-tradexa-hr-intern.html" target="_blank" rel="noopener noreferrer" class="xp-link">Read the full case page
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6h7M6.5 3l3 3-3 3"></path></svg>
+            </a>
+          </div>
+        </details>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- RESUME -->
-    <section id="resume" class="section container">
-      <div class="section-header reveal">
-        <span class="section-kicker">RESUME</span>
-        <h2 class="section-title" style="margin-top:0.5rem;">Skills &amp; background.</h2>
-      </div>
-      <div class="resume-content reveal">
-        <div class="resume-layout">
-          <div class="resume-sidebar">
-            <div class="resume-section">
-              <h3>Education</h3>
-              <p><strong>Master of Global Management</strong><br>Thunderbird, ASU<br><span style="color:var(--text-light);font-size:0.85rem;">Expected Dec 2026</span></p>
-              <br>
-              <p><strong>Bachelor of Business Admin</strong><br>Smt. Kashibai Navale College</p>
-            </div>
-            <div class="resume-section">
-              <h3>Tools</h3>
-              <div class="pill-row">
-                <span class="chip">Meta Suite</span>
-                <span class="chip">Google Workspace</span>
-                <span class="chip">Monday.com</span>
-                <span class="chip">Workday</span>
-                <span class="chip">Excel</span>
-                <span class="chip">Jira</span>
-                <span class="chip">Slack</span>
-              </div>
-            </div>
-            <div class="resume-section">
-              <h3>Developing</h3>
-              <div class="pill-row">
-                <span class="chip teal">SQL</span>
-                <span class="chip teal">Power BI</span>
-                <span class="chip teal">Tableau</span>
-                <span class="chip teal">Google Analytics</span>
-              </div>
+  <!-- RESUME -->
+  <section id="resume" class="on-dark" style="background:var(--forest);" aria-labelledby="res-h2">
+    <div class="wrap sec-pad">
+      <div class="eyebrow">Resume</div>
+      <h2 id="res-h2" style="font-size:clamp(28px,3.8vw,40px);margin-top:14px;margin-bottom:44px;color:var(--cream);">Skills &amp; background.</h2>
+
+      <div class="resume-grid">
+        <div style="display:flex;flex-direction:column;gap:32px;">
+          <div>
+            <h3 class="res-h">Education</h3>
+            <p class="res-p"><strong>Master of Global Management</strong><br>Thunderbird School of Global Management, ASU<br><small>Expected Dec 2026</small></p>
+            <p class="res-p" style="margin-top:14px;"><strong>Bachelor of Business Administration, International Business</strong><br>Savitribai Phule Pune University<br><small>2021</small></p>
+          </div>
+          <div>
+            <h3 class="res-h">Tools</h3>
+            <div class="chips" style="margin-top:12px;">
+              <span class="chip chip-dark">Excel</span>
+              <span class="chip chip-dark">Google Workspace</span>
+              <span class="chip chip-dark">Sprout Social</span>
+              <span class="chip chip-dark">GovDelivery</span>
+              <span class="chip chip-dark">Clarity</span>
+              <span class="chip chip-dark">Critical Mention</span>
+              <span class="chip chip-dark">Meta Suite</span>
+              <span class="chip chip-dark">Monday.com</span>
+              <span class="chip chip-dark">Workday</span>
+              <span class="chip chip-dark">Jira</span>
+              <span class="chip chip-dark">Slack</span>
             </div>
           </div>
-
-          <div class="resume-main">
-            <div class="resume-section">
-              <h3>Track Competencies</h3>
-              <div class="track-grid">
-                <div class="track-item">
-                  <h4>Product Marketing &amp; GTM</h4>
-                  <ul>
-                    <li>Positioning &amp; messaging strategy</li>
-                    <li>Competitive intelligence</li>
-                    <li>Go-to-market planning</li>
-                    <li>Pricing &amp; market entry</li>
-                  </ul>
-                </div>
-                <div class="track-item">
-                  <h4>Data Analytics</h4>
-                  <ul>
-                    <li>KPI development &amp; tracking</li>
-                    <li>Excel / Google Sheets</li>
-                    <li>Structured reporting</li>
-                    <li>Requirements gathering</li>
-                  </ul>
-                </div>
-                <div class="track-item">
-                  <h4>Digital Marketing Ops</h4>
-                  <ul>
-                    <li>Meta Business Suite</li>
-                    <li>SEO &amp; keyword optimization</li>
-                    <li>Multi-channel campaigns</li>
-                    <li>Audience segmentation</li>
-                  </ul>
-                </div>
-                <div class="track-item">
-                  <h4>Project Management</h4>
-                  <ul>
-                    <li>Cross-functional coordination</li>
-                    <li>Stakeholder communication</li>
-                    <li>Workflow design</li>
-                    <li>Agile / Scrum methodology</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="resume-actions" style="margin-top:2rem;">
-              <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download class="btn btn-primary">Download Full Resume</a>
-              <button type="button" class="btn btn-secondary" onclick="window.print()">Print View</button>
+          <div>
+            <h3 class="res-h">Developing</h3>
+            <div class="chips" style="margin-top:12px;">
+              <span class="chip chip-dark-gold">SQL</span>
+              <span class="chip chip-dark-gold">Power BI</span>
+              <span class="chip chip-dark-gold">Tableau</span>
+              <span class="chip chip-dark-gold">Google Analytics</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section container">
-      <div class="contact-panel reveal">
-        <h2 class="contact-headline">Let's talk.</h2>
-        <p class="contact-sub">I'm actively looking for full-time roles in <strong>Product Marketing</strong>, <strong>Marketing Ops</strong>, <strong>Data Analytics</strong>, or <strong>Project Management</strong> · starting mid-2026. Based in Phoenix, AZ · Open to hybrid and remote.</p>
-        <div class="contact-links">
-          <a href="mailto:vnarell2@asu.edu" class="btn btn-white">Email Me</a>
-          <a href="https://linkedin.com/in/vaishnavi-narella" target="_blank" class="btn btn-secondary" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.3);">LinkedIn ↗</a>
-          <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download class="btn btn-secondary" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.3);">Resume PDF</a>
+        <div>
+          <h3 class="res-h" style="margin-bottom:20px;">Track competencies</h3>
+          <div class="grid-2">
+            <div>
+              <h4 style="font-family:'Jost',sans-serif;font-size:15px;font-weight:600;color:var(--cream);margin-bottom:8px;">Data Analytics</h4>
+              <ul class="res-list">
+                <li>KPI development &amp; tracking</li>
+                <li>Dashboards &amp; structured reporting</li>
+                <li>Excel / Google Sheets</li>
+                <li>Data validation &amp; requirements gathering</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-family:'Jost',sans-serif;font-size:15px;font-weight:600;color:var(--cream);margin-bottom:8px;">Project Management</h4>
+              <ul class="res-list">
+                <li>Cross-functional coordination</li>
+                <li>Stakeholder communication</li>
+                <li>QA planning &amp; UAT</li>
+                <li>Agile / Scrum methodology</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-family:'Jost',sans-serif;font-size:15px;font-weight:600;color:var(--cream);margin-bottom:8px;">Digital Marketing Ops</h4>
+              <ul class="res-list">
+                <li>Meta Business Suite &amp; Sprout Social</li>
+                <li>SEO &amp; keyword optimization</li>
+                <li>Content calendars</li>
+                <li>Multi-channel campaigns</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-family:'Jost',sans-serif;font-size:15px;font-weight:600;color:var(--cream);margin-bottom:8px;">Product Marketing &amp; GTM</h4>
+              <ul class="res-list">
+                <li>Positioning &amp; messaging strategy</li>
+                <li>Competitive intelligence</li>
+                <li>Go-to-market planning</li>
+                <li>Pricing &amp; market entry</li>
+              </ul>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
+            <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download="" class="btn btn-cream">Download Full Resume</a>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
   </main>
 
-  <footer class="footer container">
-    <p>© <span id="year"></span> Vaishnavi Narella. All rights reserved.</p>
+  <!-- CONTACT -->
+  <footer id="contact" class="on-dark" style="background:var(--wine);scroll-margin-top:84px;">
+    <div class="wrap" style="padding-top:76px;padding-bottom:64px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;">
+      <h2 style="font-size:clamp(32px,4.6vw,48px);color:var(--cream);">Let's Talk.</h2>
+      <p style="font-size:15.5px;color:#EADFD2;max-width:560px;line-height:1.7;">
+        I'm looking for full-time roles in <strong style="color:var(--cream);">Consulting &amp; Strategy</strong>,
+        <strong style="color:var(--cream);">Business Analytics</strong>, <strong style="color:var(--cream);">Project &amp; Program Management</strong>,
+        or <strong style="color:var(--cream);">Marketing Operations</strong>, starting December 2026. Based in
+        Phoenix, AZ · Open to hybrid and remote.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding-top:10px;">
+        <a href="mailto:vaishnarella21@gmail.com" class="btn btn-cream">Email Me</a>
+        <a href="https://linkedin.com/in/vaishnavi-narella" target="_blank" rel="noopener noreferrer" class="btn btn-line-cream">LinkedIn ↗</a>
+        <a href="assets/Vaishnavi_Narella_Resume_PMM.pdf" download="" class="btn btn-line-cream">Resume PDF</a>
+      </div>
+    </div>
+    <div style="background:var(--cream);padding:22px 32px;display:flex;justify-content:center;align-items:center;border-top:1px solid var(--line);">
+      <span style="font-size:12.5px;color:var(--ink-soft);">© 2026 Vaishnavi Narella. All rights reserved.</span>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+</div>
+
+
 </body>
 </html>
